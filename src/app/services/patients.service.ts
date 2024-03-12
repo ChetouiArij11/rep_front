@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,12 @@ export class PatientsService {
     return this.http.post<any>('http://localhost:5000/patients/ajout', patientData);
   }
 
+  // Fonction de connexion
   login(adresse_email: string, cin: string): Observable<any> {
+    return this.http.post<any>('http://localhost:5000/auth/login_patient', { adresse_email, cin });
+  }
+
+  /*login(adresse_email: string, cin: string): Observable<any> {
     return new Observable(observer => {
       setTimeout(() => {
         if (adresse_email && cin) {
@@ -42,7 +48,7 @@ export class PatientsService {
         observer.complete();
       }, 1000);
     });
-  }
+  }*/
 
 }
 

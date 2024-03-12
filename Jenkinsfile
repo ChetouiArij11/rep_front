@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     // Exécutez le conteneur Docker en utilisant l'image construite
-                    bat "docker run -d -p 4200:80 --name frontend_container_${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
+                    bat "docker run -d -p 8333:80 --name frontend_container_${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
                 }
             }
         }
