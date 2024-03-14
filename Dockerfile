@@ -15,11 +15,8 @@ FROM nginx:alpine
 # Copy the build output from the build stage to the nginx public directory
 COPY --from=build /app/dist/* /usr/share/nginx/html/
 
-# Copy the nginx configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
-
 # Expose port 80 to the outside world
-EXPOSE 4200
+EXPOSE 80
 
 # Command to start nginx when the container starts
 CMD ["nginx", "-g", "daemon off;"]
