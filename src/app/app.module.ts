@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { CreatecompteComponent } from './createcompte/createcompte.component';
 import { PatientsService } from './services/patients.service';
 import { ProfileComponent } from './profile/profile.component';
+import { PrendrerendezvousComponent } from './prendrerendezvous/prendrerendezvous.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
     DashboardComponent,
     LoginComponent,
     CreatecompteComponent,
-    ProfileComponent
+    ProfileComponent,
+    PrendrerendezvousComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,

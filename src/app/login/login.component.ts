@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private patientService: PatientsService) {}
 
   createAccount() {
-    this.router.navigate(['/test']);
+    this.router.navigate(['/createcompte']);
   }
 
   ngOnInit(): void {}

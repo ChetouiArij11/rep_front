@@ -1,0 +1,41 @@
+
+<div style="margin-top: 4rem; margin-left: 100px; ">
+    <div id="doctors-container">
+        <!-- Fetch Data -->
+    </div>
+    <div data-aos="fade-left" data-aos-duration="800" id="payment-container">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <h3 style="text-align: center;">Détails du patient</h3>
+                </div>
+              <div>
+              </div>
+              <p style="color: red;">S'il vous plaît fournir les informations suivantes</p>
+              <form id="PatientForm">
+                <div class="mb-3" style="padding: 1%;">
+                  <input name="nompatient" required="true" type="name" class="form-control" id="nompatient" placeholder="Donner votre nom ">
+                </div>
+                <div class="mb-3" style="padding: 1%;">
+                  <input name="num_tel" required="true" type="text" class="form-control" id="num_tel" placeholder="Donner le numero de telephone">
+                </div>
+                <div class="mb-3" style="padding: 1%;">
+                  <label name="date_rendezvous">Date souhaitée pour vous rencontrer !</label>
+                  <input name="date_rendezvous" required="true" type="datetime-local" class="form-control" id="date_rendezvous" placeholder="Date souhaitée pour vous rencontrer !">
+                </div>
+                <div class="mb-3" style="padding: 1%;">
+                  <textarea name="motif" required="true" class="form-control" id="motif" placeholder="Indiquez le motif de la consultation et s'il existe d'autres informations médicales"></textarea>
+              </div>
+
+
+                <input type="submit" value="Confirmez votre rendez-vous" class="btn btn-info" style="color: white; width:80%;display:block; margin:auto">
+              </form>
+            </div>
+            <h6 style=" width:80%; margin: 1rem">* Les mises à jour seront envoyées à votre numéro de téléphone</h6>
+          </div>
+        </div>
+
+</div>
+
+
+

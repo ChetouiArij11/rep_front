@@ -1,131 +1,47 @@
-/* --------BOOK APPOINTMENT PAGE ----------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-*{
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+
+#main-cont{
+  margin:6rem auto;
+  margin: right 500px ;
+  /* border:1px solid black; */
+  width:77rem;
+  display: flex;
+  justify-content: space-around;
+  padding:1rem;
 }
-body{
-    font-family: poppins, sans-serif;
-    font-size: 0.9rem;
+#doctors-container{
+  /* border:1px solid black; */
+  width:50%;
+}
+#payment-container{
+  /* border:1px solid black; */
+  width:42%;
+}
+.doc-card{
+  /* border:1px solid blue; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: ghostwhite;
+  border-radius: 10px;
+  padding-top: 0.5rem;
 }
 .card{
-    margin-top:4rem;
+  /* border:1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: ghostwhite;
+  border-radius: 10px;
 }
-.card-img-overlay{
-    border: 0;
-    margin: 2%;
+.doc-profile{
+  display: flex;
+  justify-content: space-around;
+  padding:1rem;
 }
-.card-title{
-    text-align: center;
-}
-.card-img-overlay>div{
-    /* border:1px solid red; */
-    margin: 50px;
-    text-align: center;
-}
-.card-img-overlay>div p{
-    width:50%;
-    padding-top:0.7rem;
-}
-#select-dept{
-    width:50%;
-    text-align:center;
-}
-.input-grp{
-    /* border:1px solid red; */
-    width: 30%;
-    margin: auto;
-    margin-top: 3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#select-dept{
-    margin-top:-10px;
-    padding:7px;
-}
-.safety-banner{
-    background-color: rgb(235, 233, 233);
-}
-.sb-top{
-    background-color: rgb(235, 233, 233);
-    display: flex;
-    justify-content: space-around;
-    /* border: 1px solid red; */
-}
-.sb-top-body{
-    margin-top: 3%;
-    width:40%;
-    /* border: 1px solid red; */
-}
-.sb-top-img{
-    width:25%;
-    /* border: 1px solid red; */
-}
-.sb-top-img>img{
-    width:100%;
-}
-.sb-bottom{
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 3%;
-}
-.articles{
-  background-color: whitesmoke;
-    margin-top: 3%;padding: auto;
-}
-.card-group{
-    display: flex;
-    justify-content: space-around;
-}
-.card-mini{
-    margin:3rem;
-}
-.articles button{
-    margin-left: 45%;
-    margin-bottom: 4%;
-    color: white;
-}
-.slides-banner{
-    background-color: rgb(235, 233, 233);
-    /* border:1px solid red; */
-}
-.slides-left{
-    /* border:1px solid red; */
-    margin-top: 3%;
-    margin-left: 4%;
-}
-.slides-left>div{
-    display: flex;
-    justify-content: space-between;
-}
-.slides-left button{
-    margin-bottom: 4%;
-    color: white;
-}
-.slides-img{
-    margin-right: 4%;
-}
-.records-banner{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5%;
-}
-.trust-banner{
-    background-color: rgb(235, 233, 233);
-    display: flex;
-    justify-content: space-evenly;
-}
-.trust-info{
-    margin-top: 5%;
-    width: 100%;
-    margin-left: 5%;
-}
-.btn{
-    margin-bottom: 4%;
-    color: white;
+.doc-date{
+  display:flex;
+  padding:1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b76c6;
+  color:white;
 }
 .fa {
   font-family: var(--fa-style-family, "Font Awesome 6 Free");
@@ -613,8 +529,6 @@ body{
 .fa-inverse {
   color: var(--fa-inverse, #fff); }
 
-/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-readers do not read off random characters that represent icons */
 .fa-0::before {
   content: "\30"; }
 
@@ -8059,170 +7973,3 @@ readers do not read off random characters that represent icons */
   font-display: block;
   src: url("../webfonts/fa-v4compatibility.woff2") format("woff2"), url("../webfonts/fa-v4compatibility.ttf") format("truetype");
   unicode-range: U+F041,U+F047,U+F065-F066,U+F07D-F07E,U+F080,U+F08B,U+F08E,U+F090,U+F09A,U+F0AC,U+F0AE,U+F0B2,U+F0D0,U+F0D6,U+F0E4,U+F0EC,U+F10A-F10B,U+F123,U+F13E,U+F148-F149,U+F14C,U+F156,U+F15E,U+F160-F161,U+F163,U+F175-F178,U+F195,U+F1F8,U+F219,U+F27A; }
-  .tb {
-    display: table;
-    width: 100%;
-  }
-
-  .td {
-
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  input,
-  button {
-
-    color: #fff;
-    font-family: Nunito;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: transparent;
-  }
-
-  #cover {
-margin-top: 3%;
-    width: 550px;
-    padding: 10px;
-    background-color: #ff7575;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
-    transform: scale(0.6);
-  }
-
-  form {
-    height: 96px;
-  }
-
-  input[type="text"] {
-    width: 100%;
-    height: 96px;
-    font-size: 60px;
-    line-height: 1;
-  }
-
-  input[type="text"]::placeholder {
-    color: #ffffff;
-  }
-
-  #s-cover {
-    width: 1px;
-    padding-left: 35px;
-  }
-
-  button {
-    position: relative;
-    display: block;
-    width: 84px;
-    height: 96px;
-    cursor: pointer;
-  }
-
-  #s-circle {
-    position: relative;
-    top: -8px;
-    left: 0;
-    width: 43px;
-    height: 43px;
-    margin-top: 0;
-    border-width: 15px;
-    border: 15px solid #fff;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: 0.5s ease all;
-  }
-
-  button span {
-    position: absolute;
-    top: 68px;
-    left: 43px;
-    display: block;
-    width: 45px;
-    height: 15px;
-    background-color: transparent;
-    border-radius: 10px;
-    transform: rotateZ(52deg);
-    transition: 0.5s ease all;
-  }
-
-  button span:before,
-  button span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 45px;
-    height: 15px;
-    background-color: #fff;
-    border-radius: 10px;
-    transform: rotateZ(0);
-    transition: 0.5s ease all;
-  }
-
-  #s-cover:hover #s-circle {
-    top: -1px;
-    width: 67px;
-    height: 15px;
-    border-width: 0;
-    background-color: #fff;
-    border-radius: 20px;
-  }
-
-  #s-cover:hover span {
-    top: 50%;
-    left: 56px;
-    width: 25px;
-    margin-top: -9px;
-    transform: rotateZ(0);
-  }
-
-  #s-cover:hover button span:before {
-    bottom: 11px;
-    transform: rotateZ(52deg);
-  }
-
-  #s-cover:hover button span:after {
-    bottom: -11px;
-    transform: rotateZ(-52deg);
-  }
-  #s-cover:hover button span:before,
-  #s-cover:hover button span:after {
-    right: -6px;
-    width: 40px;
-    background-color: #fff;
-  }
-  .circle{
-    position:relative;
-    width:100px;
-    height:100px;
-    svg{
-      fill:none;
-      stroke:#8a3ab9;
-      stroke-linecap: round;
-      stroke-width:3;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 0;
-      animation: stroke-draw 6s ease-out infinite alternate;
-
-    }
-    img{
-      position:absolute;
-      left:50%;
-      top:75%;
-      transform:translate(-50%, -50%);
-      width:120px;
-      border-radius:50%;
-    }
-  }
-  @keyframes stroke-draw {
-    from{
-      stroke:#8a3ab9;
-      stroke-dasharray: 1;
-    }
-    to{
-      stroke:#cd486b;
-      transform:rotate(180deg);
-      stroke-dasharray: 8;
-    }
-  }
