@@ -8,7 +8,7 @@ import { ListemedecinComponent } from './listemedecin/listemedecin.component';
 
 
 const routes: Routes = [
-  {path: 'acc', component: AcceuilComponent, pathMatch:'full'},
+  {path: '', component: AcceuilComponent, pathMatch:'full'},
 {path: 'acc', component: AcceuilComponent},
 {path:'connect',component:LoginComponent},
 {path:'createcompte',component:CreatecompteComponent},
