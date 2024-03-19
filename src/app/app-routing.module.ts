@@ -4,13 +4,16 @@ import { LoginComponent } from './login/login.component';
 import { CreatecompteComponent } from './createcompte/createcompte.component';
 import { PrendrerendezvousComponent } from './prendrerendezvous/prendrerendezvous.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { ListemedecinComponent } from './listemedecin/listemedecin.component';
 
 
 const routes: Routes = [
-{path: '', component: AcceuilComponent, pathMatch:'full'},
+  {path: 'acc', component: AcceuilComponent, pathMatch:'full'},
+{path: 'acc', component: AcceuilComponent},
 {path:'connect',component:LoginComponent},
 {path:'createcompte',component:CreatecompteComponent},
-{path:'prendrerendezouvs',component:PrendrerendezvousComponent}
+{path:'prendre-rendezvous',component:PrendrerendezvousComponent},
+{path:'listemedecin',component:ListemedecinComponent}
 ];
 
 @NgModule({

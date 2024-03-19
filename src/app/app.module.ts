@@ -14,6 +14,9 @@ import { PatientsService } from './services/patients.service';
 import { ProfileComponent } from './profile/profile.component';
 import { PrendrerendezvousComponent } from './prendrerendezvous/prendrerendezvous.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ListemedecinComponent } from './listemedecin/listemedecin.component';
+import { CardmedecinComponent } from './cardmedecin/cardmedecin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,10 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     CreatecompteComponent,
     ProfileComponent,
     PrendrerendezvousComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    FooterComponent,
+    ListemedecinComponent,
+    CardmedecinComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<searchbar></searchbar>
+<div *ngIf="medecins">
+  <div class="container">
+    <div class="row">
+      <div  *ngFor="let medecin of medecins">
+        <app-cardmedecin  [medecin]="medecin"></app-cardmedecin>
+      </div>
+    </div>
+  </div>
+</div>
