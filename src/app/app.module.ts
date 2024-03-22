@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,11 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListemedecinComponent } from './listemedecin/listemedecin.component';
 import { CardmedecinComponent } from './cardmedecin/cardmedecin.component';
+import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { initializeApp } from './app.initializers';
+import { AuthGuard } from './guards/auth.guard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,16 +36,22 @@ import { CardmedecinComponent } from './cardmedecin/cardmedecin.component';
     SearchbarComponent,
     FooterComponent,
     ListemedecinComponent,
-    CardmedecinComponent
+    CardmedecinComponent,
+    UpdateprofileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    PatientsService
+    PatientsService,
+    { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [PatientsService], multi: true },
+    AuthGuard
+
   ],
   bootstrap: [AppComponent]
 })

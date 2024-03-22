@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit ,ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -7,10 +8,16 @@ import * as $ from 'jquery';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isLoggedIn: boolean = false;
+  constructor(private router: Router  , private cdRef: ChangeDetectorRef) {
+    this.checkAuthentication();
+  }
   ngOnInit(): void {
     this.test();
 
+    this.refreshComponent();
+    this.checkAuthentication();
+    this.isLoggedIn = this.isUserLoggedIn();
     $(window).on('resize', () => {
       setTimeout(() => this.test(), 500);
     });
@@ -33,6 +40,11 @@ export class NavbarComponent implements OnInit {
       // Add active class to target link
       target.parent().addClass('active');
     });
+
+    this.isLoggedIn = this.isUserLoggedIn();
+  }
+  refreshComponent() {
+    this.cdRef.detectChanges(); // Trigger change detection
   }
 
   private test(): void {
@@ -63,5 +75,24 @@ export class NavbarComponent implements OnInit {
         "width": `${activeWidthNewAnimWidth}px`
       });
     });
+  }
+  checkAuthentication(): void {
+    const patientID = localStorage.getItem('patientID');
+    this.isLoggedIn = !!patientID; // Set isLoggedIn to true if userId exists
+  }
+
+  isUserLoggedIn(): boolean {
+    // Vérifie si les informations de connexion de l'utilisateur sont présentes dans le stockage local
+    const token = localStorage.getItem('token');
+  return token !== null;
+  }
+  @Input() buttonText: string = 'Se connecter';
+  logout() {
+    // Supprime le token du stockage local lors de la déconnexion
+    localStorage.removeItem('token');
+    // Met à jour l'état de connexion
+    this.isLoggedIn = false;
+    // Redirige l'utilisateur vers la page de connexion
+    this.router.navigate(['/connect']);
   }
 }
