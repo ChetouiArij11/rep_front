@@ -22,6 +22,7 @@ import { initializeApp } from './app.initializers';
 import { AuthGuard } from './guards/auth.guard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PatientResolver } from './resolvers/patient.resolver';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     PatientsService,
     { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [PatientsService], multi: true },
-    AuthGuard
+    AuthGuard,
+    PatientResolver
 
   ],
   bootstrap: [AppComponent]

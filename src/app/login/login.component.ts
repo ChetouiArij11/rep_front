@@ -12,56 +12,38 @@ import { Location } from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  adresse_email !: string;
-  cin !: string;
-  errorMessage !: string;
-  isLoggedIn: boolean = false;
+  adresse_email: string = '';
+  cin: string = '';
+  errorMessage: string = '';
+
 
 
   createAccount() {
     this.router.navigate(['/createcompte']);
   }
 
+  constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {}
+
   ngOnInit(): void {}
-
-  constructor(private location: Location, private authService: AuthService, private router: Router, private snackBar: MatSnackBar,private cdRef: ChangeDetectorRef) {}
-
-
-refreshComponent() {
-    this.cdRef.detectChanges(); // Trigger change detection
-  }
-checkAuthentication(): void {
-    const patientID = localStorage.getItem('patientID');
-    this.isLoggedIn = !!patientID; // Set isLoggedIn to true if patientID exists
-  }
 
 
   login(): void {
-    const email = this.adresse_email;
-const cin = this.cin;
-    this.authService.login(email,cin).subscribe(
-      (patientID: string) => {
-        // Store the user ID in localStorage upon successful login
-        localStorage.setItem('patientID', patientID);
-        console.log('Login successful. patient ID stored:', patientID);
-        this.refreshComponent();
-        this.checkAuthentication();
-        this.snackBar.open('La connexion a réussi. bienvenue !', 'Close', {
-          duration: 10000,
-          panelClass: ['green-snackbar'],
-        });
-        this.location.go('/profile');
-        window.location.reload();
+    this.authService.login(this.adresse_email, this.cin).subscribe(
+      (response: any) => {
+        // Stocker le token après une connexion réussie
+        this.authService.storeToken(response.token);
+        this.authService.storePatientID(response.patientID);
+        // Rediriger vers la page de profil
+        this.router.navigate(['/profile']);
+        // Afficher un message de succès
+        this.snackBar.open('La connexion a réussi. Bienvenue !', 'Fermer', { duration: 3000 });
       },
       error => {
-        console.error('Login Failed', error);
-        this.snackBar.open('La connexion a échoué. Veuillez vérifier votre adresse e-mail et votre mot de passe.', 'Close', {
-          duration: 3000,
-        });
+        // Afficher un message d'erreur
+        this.snackBar.open('La connexion a échoué. Veuillez vérifier votre adresse e-mail et votre mot de passe.', 'Fermer', { duration: 3000 });
       }
     );
   }
-
   validateCIN(cin: string): boolean {
     // Vérifie si le CIN a exactement 8 caractères et tous les caractères sont des chiffres
     return cin.length === 8 && /^\d+$/.test(cin);

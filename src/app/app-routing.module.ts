@@ -18,8 +18,9 @@ const routes: Routes = [
 {path:'createcompte',component:CreatecompteComponent},
 {path:'prendre-rendezvous',component:PrendrerendezvousComponent},
 {path:'listemedecin',component:ListemedecinComponent},
-{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: { patient: PatientResolver } },
+//{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: { patient: PatientResolver } },
 {path:'profile/updateprofile',component:UpdateprofileComponent},
+{ path: 'profile', component: ProfileComponent}
 
 ];
 
