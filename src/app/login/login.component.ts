@@ -14,6 +14,7 @@ import { Location } from '@angular/common';
 export class LoginComponent implements OnInit {
   adresse_email: string = '';
   cin: string = '';
+  patientId: number = 0;
   errorMessage: string = '';
 
 
@@ -26,15 +27,39 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
   login(): void {
-    this.authService.login(this.adresse_email, this.cin).subscribe(
+    this.authService.login(this.adresse_email, this.cin, this.patientId).subscribe(
+      (response: any) => {
+        // Store the token and patientID after successful login
+        if (response.patientID) { // Check if patientID is defined
+          this.authService.storeToken(response.token, response.patientID);
+          // Redirect to the profile page
+          this.router.navigate(['/profile']);
+          // Display success message
+          this.snackBar.open('Login successful. Welcome!', 'Close', { duration: 3000 });
+        } else {
+          console.error('Patient ID is undefined in login response:', response);
+          this.snackBar.open('Login failed. Please try again later.', 'Close', { duration: 3000 });
+        }
+      },
+      error => {
+        // Display error message
+        this.snackBar.open('Login failed. Please check your email and password.', 'Close', { duration: 3000 });
+      }
+    );
+  }
+
+
+/*
+  login(): void {
+    this.authService.login(this.adresse_email, this.cin, this.patientID).subscribe(
       (response: any) => {
         // Stocker le token après une connexion réussie
         this.authService.storeToken(response.token);
-        this.authService.storePatientID(response.patientID);
+
+        this.authService.storePatientId(response.patientID);
         // Rediriger vers la page de profil
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/acc']);
         // Afficher un message de succès
         this.snackBar.open('La connexion a réussi. Bienvenue !', 'Fermer', { duration: 3000 });
       },
@@ -44,6 +69,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+*/
   validateCIN(cin: string): boolean {
     // Vérifie si le CIN a exactement 8 caractères et tous les caractères sont des chiffres
     return cin.length === 8 && /^\d+$/.test(cin);

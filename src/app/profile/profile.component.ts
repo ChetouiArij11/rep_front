@@ -1,7 +1,5 @@
-// profile.component.ts
-
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../models/patients.model'; // Importez le modèle de profil
+import { Patient } from '../models/patients.model';
 import { PatientsService } from '../services/patients.service';
 
 @Component({
@@ -13,17 +11,25 @@ export class ProfileComponent implements OnInit {
 
   storedUserId!: string;
   userIdAsNumber!: number;
-  user!: Patient; // Utilisez le modèle de profil ici
+  user!: Patient;
   errorMessage: string = '';
 
   constructor(private patientsService: PatientsService) { }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('patientID');
-    this.storedUserId = userId ?? 'DefaultUserID';
-    console.log('Stored User ID:', this.storedUserId);
-    this.userIdAsNumber = parseInt(this.storedUserId);
-    this.loadData();
+    const patientId = localStorage.getItem('patientId');
+    if (patientId) {
+      this.userIdAsNumber = parseInt(patientId);
+      if (!isNaN(this.userIdAsNumber)) {
+        this.loadData();
+      } else {
+        console.error('Invalid user ID:', patientId);
+        this.errorMessage = 'Invalid user ID.';
+      }
+    } else {
+      console.log('No user ID found in localStorage');
+      this.errorMessage = 'No user ID found.';
+    }
   }
 
   loadData() {

@@ -1,5 +1,5 @@
 export interface Patient {
-  id?: string; // Le '?' indique que l'ID est facultatif, car il peut être généré automatiquement par la base de données
+  id?: number;
   nom: string;
   prenom: string;
   date_de_naissance: Date;
