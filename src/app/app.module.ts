@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListemedecinComponent } from './listemedecin/listemedecin.component';
 import { CardmedecinComponent } from './cardmedecin/cardmedecin.component';
-import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { UpdateProfileComponent } from './updateprofile/updateprofile.component';
 import { initializeApp } from './app.initializers';
 import { AuthGuard } from './guards/auth.guard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -38,7 +38,7 @@ import { PatientResolver } from './resolvers/patient.resolver';
     FooterComponent,
     ListemedecinComponent,
     CardmedecinComponent,
-    UpdateprofileComponent
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,8 @@ import { PatientResolver } from './resolvers/patient.resolver';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     PatientsService,

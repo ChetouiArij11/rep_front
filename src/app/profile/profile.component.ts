@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importez Router depuis @angular/router
 import { Patient } from '../models/patients.model';
 import { PatientsService } from '../services/patients.service';
+import { AuthService } from '../services/auth.service'; // Importez AuthService
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +16,11 @@ export class ProfileComponent implements OnInit {
   user!: Patient;
   errorMessage: string = '';
 
-  constructor(private patientsService: PatientsService) { }
+  constructor(
+    private patientsService: PatientsService,
+    private authService: AuthService, // Injectez AuthService
+    private router: Router // Injectez Router
+  ) { }
 
   ngOnInit(): void {
     const patientId = localStorage.getItem('patientId');
@@ -42,5 +48,11 @@ export class ProfileComponent implements OnInit {
         this.errorMessage = 'Une erreur s\'est produite lors de la récupération des données du profil.';
       }
     );
+  }
+
+  logout(): void {
+    this.authService.logout();
+    // Redirect to login page or any other desired page
+    this.router.navigate(['/login']);
   }
 }

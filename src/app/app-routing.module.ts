@@ -6,7 +6,7 @@ import { PrendrerendezvousComponent } from './prendrerendezvous/prendrerendezvou
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { ListemedecinComponent } from './listemedecin/listemedecin.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
+import { UpdateProfileComponent} from './updateprofile/updateprofile.component';
 import { PatientResolver } from './resolvers/patient.resolver';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -19,7 +19,9 @@ const routes: Routes = [
 {path:'prendre-rendezvous',component:PrendrerendezvousComponent},
 {path:'listemedecin',component:ListemedecinComponent},
 //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: { patient: PatientResolver } },
-{path:'profile/updateprofile',component:UpdateprofileComponent},
+//{path:'profile/updateprofile',component:UpdateprofileComponent},
+
+{ path: 'update-profile/:id', component: UpdateProfileComponent },
 { path: 'profile', component: ProfileComponent}
 
 ];
