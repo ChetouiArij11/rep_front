@@ -53,4 +53,19 @@ storeToken(token: string, patientId: number): void {
   logout(): void {
     localStorage.removeItem('token');
   }
+
+   // Méthode pour obtenir l'ID de l'utilisateur connecté
+   getCurrentUserId(): number | undefined {
+    // Récupérer l'ID de l'utilisateur connecté depuis le localStorage ou tout autre endroit où il est stocké
+    const patientId = localStorage.getItem('patientId');
+
+    // Vérifier si l'ID de l'utilisateur est récupéré avec succès
+    if (patientId) {
+      // Parse l'ID récupéré en tant que nombre et le retourne
+      return parseInt(patientId, 10);
+    } else {
+      console.error('Impossible de récupérer l\'ID de l\'utilisateur connecté.');
+      return undefined;
+    }
+  }
 }
