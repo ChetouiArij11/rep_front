@@ -23,6 +23,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientResolver } from './resolvers/patient.resolver';
+import { RendezvousListComponent } from './rendezvous-list/rendezvous-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { PatientResolver } from './resolvers/patient.resolver';
     FooterComponent,
     ListemedecinComponent,
     CardmedecinComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    RendezvousListComponent
   ],
   imports: [
     BrowserModule,

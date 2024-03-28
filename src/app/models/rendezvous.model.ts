@@ -6,4 +6,5 @@ export interface Rendezvous {
   date_heure: string;
   statut: string;
   num_telephone_patient: string;
+  medecin_nom: string;
 }

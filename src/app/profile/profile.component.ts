@@ -4,6 +4,7 @@ import { Patient } from '../models/patients.model';
 import { PatientsService } from '../services/patients.service';
 import { AuthService } from '../services/auth.service'; // Importez AuthService
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -19,6 +20,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private patientsService: PatientsService,
     private authService: AuthService, // Injectez AuthService
+
     private router: Router // Injectez Router
   ) { }
 
@@ -36,6 +38,8 @@ export class ProfileComponent implements OnInit {
       console.log('No user ID found in localStorage');
       this.errorMessage = 'No user ID found.';
     }
+
+
   }
 
   loadData() {

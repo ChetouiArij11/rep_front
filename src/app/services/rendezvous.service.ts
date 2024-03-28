@@ -3,15 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Rendezvous } from '../models/rendezvous.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class RendezvousService {
   private baseUrl = 'http://localhost:5000/rendezvous';
+  private patientId: number | null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.patientId = parseInt(localStorage.getItem('patientId') || '', 10);
+   }
 
-  prendreRendezVous(rendezvous: Rendezvous): Observable<any> {
-    return this.http.post(this.baseUrl, rendezvous);
+   prendreRendezVous(rendezvousData: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl, rendezvousData);
   }
+
+  getRendezvousForPatient(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/patient/${this.patientId}`);
+  }
+
+
+
 }

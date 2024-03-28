@@ -12,21 +12,21 @@ export class PrendrerendezvousComponent {
   num_tel: string | undefined;
   date_rendezvous: string | undefined;
   motif: string | undefined;
-  patient_id: number | undefined;
+  patientId: number | undefined;
 
   constructor(
     private rendezvousService: RendezvousService,
     private authService: AuthService // Injecter le service AuthService
   ) {
     // Récupérer l'ID du patient connecté lors de l'initialisation du composant
-    this.patient_id = this.authService.getCurrentUserId(); // Utiliser la méthode getCurrentUserId() du service AuthService
+    this.patientId = this.authService.getCurrentUserId(); // Utiliser la méthode getCurrentUserId() du service AuthService
   }
 
   submitForm() {
     // Vérifier si l'ID du patient est défini
-    if (this.patient_id !== undefined) {
+    if (this.patientId !== undefined) {
       const rendezvousData = {
-        patient_id: this.patient_id,
+        patient_id: this.patientId!,
         medecin_id: 4,
         nom_patient: this.nompatient!,
         date_heure: this.date_rendezvous!,
