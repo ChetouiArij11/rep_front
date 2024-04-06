@@ -14,7 +14,7 @@ export class AcceuilComponent implements OnInit {
 
     selectTag.addEventListener("change", async (e) => {
       localStorage.setItem("deptID", selectTag.value);
-      window.location.href = "./doctors.page.html";
+      window.location.href = "/acc";
     });
   }
 

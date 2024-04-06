@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent} from './updateprofile/updateprofile.component';
 import { PatientResolver } from './resolvers/patient.resolver';
 import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
 //{path:'profile/updateprofile',component:UpdateprofileComponent},
 
 { path: 'update-profile/:id', component: UpdateProfileComponent },
-{ path: 'profile', component: ProfileComponent}
+{ path: 'profile', component: ProfileComponent},
+
 
 ];
 

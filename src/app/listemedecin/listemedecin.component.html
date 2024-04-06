@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div  *ngFor="let medecin of medecins">
-        <app-cardmedecin  [medecin]="medecin"></app-cardmedecin>
+        <app-cardmedecin  [medecin]="medecin" (medecinSelected)="onMedecinSelected($event)"></app-cardmedecin>
       </div>
     </div>
   </div>

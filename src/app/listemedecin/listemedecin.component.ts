@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Medecin } from '../models/medecins.model';
 import { MedecinService } from '../services/medecin.service';
 
@@ -10,6 +10,7 @@ import { MedecinService } from '../services/medecin.service';
 export class ListemedecinComponent implements OnInit {
   medecins: Medecin[] = []; // Définir le tableau de médecins
 
+  @Output() medecinSelected = new EventEmitter<number>();
   constructor(private medecinService: MedecinService) { }
 
   ngOnInit(): void {
@@ -22,4 +23,8 @@ export class ListemedecinComponent implements OnInit {
       }
     );
   }
+  onMedecinSelected(id: number) {
+    this.medecinSelected.emit(id); // Émettre l'ID du médecin sélectionné
+  }
+
 }
