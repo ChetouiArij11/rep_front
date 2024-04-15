@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { LoginComponent } from './login/login.component';
 import { CreatecompteComponent } from './createcompte/createcompte.component';
 import { PatientsService } from './services/patients.service';
@@ -24,13 +24,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientResolver } from './resolvers/patient.resolver';
 import { RendezvousListComponent } from './rendezvous-list/rendezvous-list.component';
+import { DemaqndemedecinComponent } from './demaqndemedecin/demaqndemedecin.component';
+import { DemandeComponent } from './demande/demande.component';
+import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AcceuilComponent,
     NavbarComponent,
-    DashboardComponent,
+
     LoginComponent,
     CreatecompteComponent,
     ProfileComponent,
@@ -40,7 +45,12 @@ import { RendezvousListComponent } from './rendezvous-list/rendezvous-list.compo
     ListemedecinComponent,
     CardmedecinComponent,
     UpdateProfileComponent,
-    RendezvousListComponent
+    RendezvousListComponent,
+    DemaqndemedecinComponent,
+    DemandeComponent,
+    LoginmedecinComponent,
+
+
   ],
   imports: [
     BrowserModule,

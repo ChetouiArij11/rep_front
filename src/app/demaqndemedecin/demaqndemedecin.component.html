@@ -1,0 +1,111 @@
+<div class="wrapper">
+  <div class="profile-card js-profile-card">
+    <div class="profile-card__img">
+      <img src="/assets/img/logo.PNG" alt="profile card">
+    </div>
+
+    <div class="profile-card__cnt js-profile-cnt">
+      <div class="profile-card__name">Rendez-vouya</div>
+      <div class="profile-card__txt">Societe XXX  <strong>Rue YYY</strong></div>
+      <div class="profile-card-loc">
+        <span class="profile-card-loc__icon">
+          <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+        </span>
+
+        <span class="profile-card-loc__txt">
+          Tozeur, Tunis
+        </span>
+      </div>
+
+      <div class="profile-card-inf" style="margin-top: 20px;">
+        <div class="profile-card-inf__item">
+          <div class="profile-card-inf__title">1598</div>
+          <div class="profile-card-inf__txt">Patients</div>
+        </div>
+
+        <div class="profile-card-inf__item">
+          <div class="profile-card-inf__title">65</div>
+          <div class="profile-card-inf__txt">Medecins</div>
+        </div>
+
+        <div class="profile-card-inf__item">
+          <div class="profile-card-inf__title">123</div>
+          <div class="profile-card-inf__txt">Spécialiste</div>
+        </div>
+
+        <div class="profile-card-inf__item">
+          <div class="profile-card-inf__title">8500</div>
+          <div class="profile-card-inf__txt">Dossier medicals</div>
+        </div>
+      </div>
+
+      <div class="profile-card__txt" style="margin-top: 20px;">Pour vous inscrire sur cette plateforme, vous devez soumettre la candidature et les documents nécessaires et obtenir la confirmation du droit de publier des informations médicales afin de garder vos informations accessibles.</div>
+
+
+
+        <div class="profile-card-loc">
+
+
+          <span class="profile-card-loc__txt" style="margin-top: 20px;">
+            Comment ca se passe ?
+          </span>
+
+        </div>
+        <div class="profile-card__txt" > Votre inscription en 3 étapes</div>
+        <div class="profile-card-inf" style="margin-top: 20px;">
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">1</div>
+            <div class="profile-card-inf__txt">Vérification systématique <br>
+              de l’identité du médecin</div>
+          </div>
+
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">2</div>
+            <div class="profile-card-inf__txt">Création de votre fiche,<br> incluant : Adresse, numéro de téléphone,<br>
+              géolocalisation, spécialité</div>
+          </div>
+
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">3</div>
+            <div class="profile-card-inf__txt">Listing aléatoire de votre fiche <br>
+              suivant la géolocalisation, <br>
+              la spécialité ou la localité</div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      <div class="profile-card-ctr">
+
+        <button class="profile-card__button button--orange" [routerLink]="['/demande']"> Remplire la formulaire <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="20" height="20" ><path d="M19.122,18.394l3.919-3.919a3.585,3.585,0,0,0,0-4.95L19.122,5.606A1.5,1.5,0,0,0,17,7.727l2.78,2.781-18.25.023a1.5,1.5,0,0,0-1.5,1.5v0a1.5,1.5,0,0,0,1.5,1.5l18.231-.023L17,16.273a1.5,1.5,0,0,0,2.121,2.121Z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="profile-card-message js-message">
+      <form class="profile-card-form">
+        <div class="profile-card-form__container">
+          <textarea placeholder="Say something..."></textarea>
+        </div>
+
+        <div class="profile-card-form__bottom">
+          <button class="profile-card__button button--blue js-message-close">
+            Send
+          </button>
+
+          <button class="profile-card__button button--gray js-message-close">
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <div class="profile-card__overlay js-message-close"></div>
+    </div>
+
+  </div>
+
+</div>

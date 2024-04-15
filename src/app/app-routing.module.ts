@@ -9,7 +9,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent} from './updateprofile/updateprofile.component';
 import { PatientResolver } from './resolvers/patient.resolver';
 import { AuthGuard } from './guards/auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DemaqndemedecinComponent } from './demaqndemedecin/demaqndemedecin.component';
+import { DemandeComponent } from './demande/demande.component';
+import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
+
+
 
 
 const routes: Routes = [
@@ -24,7 +28,9 @@ const routes: Routes = [
 
 { path: 'update-profile/:id', component: UpdateProfileComponent },
 { path: 'profile', component: ProfileComponent},
-
+{ path: 'docdemande', component: DemaqndemedecinComponent},
+{ path: 'demande', component: DemandeComponent},
+{ path: 'loginmedecin', component: LoginmedecinComponent},
 
 ];
 
