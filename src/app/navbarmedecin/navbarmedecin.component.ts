@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbarmedecin',
+  templateUrl: './navbarmedecin.component.html',
+  styleUrls: ['./navbarmedecin.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarmedecinComponent implements OnInit {
   isLoggedIn: boolean = false;
-  patientId: string = ''; // Nouvelle variable pour stocker le type d'utilisateur (patient ou médecin)
+  userType: string = ''; // Nouvelle variable pour stocker le type d'utilisateur (patient ou médecin)
 
   constructor(private router: Router, private cdRef: ChangeDetectorRef) {
     this.checkAuthentication();
@@ -78,9 +78,9 @@ export class NavbarComponent implements OnInit {
   checkAuthentication(): void {
     const token = localStorage.getItem('token');
     if (token) {
-      const patientId = localStorage.getItem('patientId');
-      if (patientId) {
-        this.patientId = patientId; // Définit le type d'utilisateur (patient ou médecin)
+      const userType = localStorage.getItem('userType');
+      if (userType) {
+        this.userType = userType; // Définit le type d'utilisateur (patient ou médecin)
         this.isLoggedIn = true;
       }
     }
@@ -95,7 +95,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('patientId'); // Supprime également le type d'utilisateur lors de la déconnexion
+    localStorage.removeItem('userType'); // Supprime également le type d'utilisateur lors de la déconnexion
     this.isLoggedIn = false;
     this.router.navigate(['/connect']);
   }

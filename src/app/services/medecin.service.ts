@@ -11,7 +11,10 @@ export class MedecinService {
 
   // URL de votre backend
   private baseUrl = 'http://localhost:5000/medecins'; // Assurez-vous de modifier l'URL en fonction de votre configuration backend
+  initialize(): Observable<any> {
 
+    return this.http.get<any>('http://localhost:5000/medecins/');
+  }
   constructor(private http: HttpClient) { }
 
   searchMedecin(nom: string, telMedecin: string, email: string): Observable<any> {
@@ -43,4 +46,15 @@ export class MedecinService {
   getAllMedecins(): Observable<Medecin[]> {
     return this.http.get<Medecin[]>(`${this.baseUrl}`);
   }
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>('http://localhost:5000/auth/login_medecin', { email, password });
+  }
+
+  getmedecin(medecinId: number): Observable<Medecin> {
+    return this.http.get<any>(`http://localhost:5000/medecins/${medecinId}`);
+  }
+  updatemedecin(MedecinData: Medecin): Observable<any> {
+    return this.http.put<any>('http://localhost:5000/medecins/' + MedecinData.id, MedecinData);
+  }
+
 }

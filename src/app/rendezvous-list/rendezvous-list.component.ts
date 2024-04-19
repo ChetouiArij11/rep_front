@@ -27,4 +27,20 @@ export class RendezvousListComponent implements OnInit {
       }
     );
   }
+
+  deleteRendezvous(id: number): void {
+    const confirmDelete = confirm("Êtes-vous sûr de vouloir supprimer cette demande ?");
+    if (confirmDelete) {
+      this.rendezvousService.deleteRendezvous(id).subscribe(
+        () => {
+          alert("Demande supprimée avec succès !");
+          // Suppression réussie, actualisez la liste des demandes
+          this.loadRendezvousForPatient();
+        },
+        (error) => {
+          console.error('Une erreur s\'est produite lors de la suppression de la demande : ', error);
+        }
+      );
+    }
+  }
 }

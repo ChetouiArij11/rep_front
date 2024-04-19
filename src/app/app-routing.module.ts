@@ -12,6 +12,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { DemaqndemedecinComponent } from './demaqndemedecin/demaqndemedecin.component';
 import { DemandeComponent } from './demande/demande.component';
 import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
+import { ProfilemedecinComponent } from './profilemedecin/profilemedecin.component';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes = [
 { path: 'docdemande', component: DemaqndemedecinComponent},
 { path: 'demande', component: DemandeComponent},
 { path: 'loginmedecin', component: LoginmedecinComponent},
-
+{ path: 'profilemedecin', component: ProfilemedecinComponent},
 ];
 
 @NgModule({

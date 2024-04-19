@@ -23,6 +23,9 @@ export class RendezvousService {
     return this.http.get<any[]>(`${this.baseUrl}/patient/${this.patientId}`);
   }
 
+  deleteRendezvous(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 
 
 }

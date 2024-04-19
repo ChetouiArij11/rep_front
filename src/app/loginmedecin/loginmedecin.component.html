@@ -17,12 +17,12 @@
       <div class="card" style="width: 29rem; " id="form">
         <div class="card-body">
           <div class="mb-3" style="padding: 2%;">
-            <label for="adresse_email" class="form-label">Email</label>
-            <input class="form-control" id="adresse_email" name="adresse_email" [(ngModel)]="adresse_email" [ngModelOptions]="{standalone: true}" placeholder="ecrire votre email" required>
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" id="email" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="ecrire votre email" required>
           </div>
           <div class="mb-3" style="padding: 2%;">
-            <label for="cin" class="form-label">Cin</label>
-            <input  class="form-control" id="cin" [(ngModel)]="cin" [ngModelOptions]="{standalone: true}" placeholder="ecrire le numero de votre cin" required>
+            <label for="password" class="form-label">password</label>
+            <input  class="form-control" type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="ecrire le numero de votre password" required>
           </div>
         </div>
         <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>

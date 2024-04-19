@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,12 +8,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit  {
   title = 'frontend';
-  isLoggedIn: boolean = false; // Ajoutez cette variable si ce n'est pas déjà fait
+  isLoggedIn: boolean = false;
+  isNavbarVisible: boolean = true;
+
   constructor(private router: Router) {}
 
-  getButtonText(): string {
-    return this.isLoggedIn ? 'Mon compte' : 'Se connecter';
-  }
   ngOnInit() {
     // Vérifie si un token est déjà enregistré
     const token = localStorage.getItem('token');
@@ -24,4 +22,12 @@ export class AppComponent implements OnInit  {
     }
   }
 
+  isMedecinRoute(): boolean {
+    // Mettez ici la logique pour déterminer si l'utilisateur est sur la route de l'interface médecin
+    return this.router.url.includes('profilemedecin');
+  }
+
+  getButtonText(): string {
+    return this.isLoggedIn ? 'Mon compte' : 'Se connecter';
+  }
 }

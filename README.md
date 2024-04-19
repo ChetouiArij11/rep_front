@@ -46,4 +46,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
           <div class="product-cell stock"><span class="cell-label">Stock:</span>36</div>
           <div class="product-cell price"><span class="cell-label">Price:</span>$560</div>
         </div>
+
+
+
+
+
+
+           <li class="nav-item ">
+              <a class="nav-link" href="javascript:void(0);" routerLink="acc"><i class="fas fa-first-aid"></i>  <a *ngIf="isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="profilemedecin">
+                <i class="far fa-user"></i> Mon compte
+            </a>
+            <a *ngIf="!isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="login">
+                <i class="far fa-address-book"></i> Se connecter
+            </a>
+          </li>
 ```

@@ -27,6 +27,9 @@ import { RendezvousListComponent } from './rendezvous-list/rendezvous-list.compo
 import { DemaqndemedecinComponent } from './demaqndemedecin/demaqndemedecin.component';
 import { DemandeComponent } from './demande/demande.component';
 import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
+import { ProfilemedecinComponent } from './profilemedecin/profilemedecin.component';
+import { NavbarmedecinComponent } from './navbarmedecin/navbarmedecin.component';
+import { InterfacemedecinComponent } from './interfacemedecin/interfacemedecin.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
     DemaqndemedecinComponent,
     DemandeComponent,
     LoginmedecinComponent,
+    ProfilemedecinComponent,
+    NavbarmedecinComponent,
+    InterfacemedecinComponent,
 
 
   ],

@@ -1,3 +1,6 @@
-<app-navbar [buttonText]="getButtonText()" ></app-navbar>
+<ng-container *ngIf="isNavbarVisible">
+  <app-navbar *ngIf="!isMedecinRoute()" [buttonText]="getButtonText()"></app-navbar>
+  <app-navbarmedecin *ngIf="isMedecinRoute()" [buttonText]="getButtonText()"></app-navbarmedecin>
+</ng-container>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
