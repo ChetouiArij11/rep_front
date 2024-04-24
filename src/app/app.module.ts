@@ -30,6 +30,12 @@ import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
 import { ProfilemedecinComponent } from './profilemedecin/profilemedecin.component';
 import { NavbarmedecinComponent } from './navbarmedecin/navbarmedecin.component';
 import { InterfacemedecinComponent } from './interfacemedecin/interfacemedecin.component';
+import { AccmedecinComponent } from './accmedecin/accmedecin.component';
+import { AjoutficheComponent } from './ajoutfiche/ajoutfiche.component';
+import { DejapatientComponent } from './dejapatient/dejapatient.component';
+import { ListeficheComponent } from './listefiche/listefiche.component';
+import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
+
 
 
 @NgModule({
@@ -55,6 +61,12 @@ import { InterfacemedecinComponent } from './interfacemedecin/interfacemedecin.c
     ProfilemedecinComponent,
     NavbarmedecinComponent,
     InterfacemedecinComponent,
+    AccmedecinComponent,
+    AjoutficheComponent,
+    DejapatientComponent,
+    ListeficheComponent,
+    InboxrendezvousComponent,
+  
 
 
   ],

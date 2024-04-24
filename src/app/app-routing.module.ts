@@ -13,6 +13,11 @@ import { DemaqndemedecinComponent } from './demaqndemedecin/demaqndemedecin.comp
 import { DemandeComponent } from './demande/demande.component';
 import { LoginmedecinComponent } from './loginmedecin/loginmedecin.component';
 import { ProfilemedecinComponent } from './profilemedecin/profilemedecin.component';
+import { InterfacemedecinComponent } from './interfacemedecin/interfacemedecin.component';
+import { AjoutficheComponent } from './ajoutfiche/ajoutfiche.component';
+import { DejapatientComponent } from './dejapatient/dejapatient.component';
+import { ListeficheComponent } from './listefiche/listefiche.component';
+import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
 
 
 
@@ -33,6 +38,11 @@ const routes: Routes = [
 { path: 'demande', component: DemandeComponent},
 { path: 'loginmedecin', component: LoginmedecinComponent},
 { path: 'profilemedecin', component: ProfilemedecinComponent},
+{ path: 'interfacemedecin', component: InterfacemedecinComponent},
+{ path: 'ajoutfiche', component: AjoutficheComponent},
+{ path: 'dejapatient', component: ListeficheComponent},
+{ path: 'update-fiche/:id', component: DejapatientComponent },
+{ path: 'inbox', component: InboxrendezvousComponent },
 ];
 
 @NgModule({

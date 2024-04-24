@@ -57,4 +57,11 @@ export class MedecinService {
     return this.http.put<any>('http://localhost:5000/medecins/' + MedecinData.id, MedecinData);
   }
 
+  getMedecinById(medecinId: number): Observable<Medecin> {
+    // Construire l'URL avec l'ID du médecin
+    const url = `${this.baseUrl}/${medecinId}`;
+    // Envoyer une requête GET pour récupérer le médecin
+    return this.http.get<Medecin>(url);
+  }
+
 }

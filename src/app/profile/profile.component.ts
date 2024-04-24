@@ -13,7 +13,7 @@ import { AuthService } from '../services/auth.service'; // Importez AuthService
 export class ProfileComponent implements OnInit {
 
   storedUserId!: string;
-  userIdAsNumber!: number;
+  patientId!: number;
   user!: Patient;
   errorMessage: string = '';
 
@@ -27,8 +27,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const patientId = localStorage.getItem('patientId');
     if (patientId) {
-      this.userIdAsNumber = parseInt(patientId);
-      if (!isNaN(this.userIdAsNumber)) {
+      this.patientId = parseInt(patientId);
+      if (!isNaN(this.patientId)) {
         this.loadData();
       } else {
         console.error('Invalid user ID:', patientId);
@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
   }
 
   loadData() {
-    this.patientsService.getPatient(this.userIdAsNumber).subscribe(
+    this.patientsService.getPatient(this.patientId).subscribe(
       (data: Patient) => {
         this.user = data;
       },

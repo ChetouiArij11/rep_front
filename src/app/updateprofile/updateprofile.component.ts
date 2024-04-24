@@ -53,7 +53,7 @@ export class UpdateProfileComponent implements OnInit {
     } else {
       console.error('Impossible de mettre à jour le profil: patient non défini.');
     }
-  
+
   }
 }
 }

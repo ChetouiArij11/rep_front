@@ -16,7 +16,7 @@ import { AppComponent } from '../app.component';
 export class ProfilemedecinComponent implements OnInit {
 
   storedUserId!: string;
-  userIdAsNumber!: number;
+  medecinId!: number;
   user!: Medecin;
   errorMessage: string = '';
   isNavbarVisible: boolean | undefined;
@@ -32,8 +32,8 @@ export class ProfilemedecinComponent implements OnInit {
   ngOnInit(): void {
     const medecinId = localStorage.getItem('medecinId');
     if (medecinId) {
-      this.userIdAsNumber = parseInt(medecinId);
-      if (!isNaN(this.userIdAsNumber)) {
+      this.medecinId = parseInt(medecinId);
+      if (!isNaN(this.medecinId)) {
         this.loadData();
       } else {
         console.error('Invalid user ID:', medecinId);
@@ -48,7 +48,7 @@ export class ProfilemedecinComponent implements OnInit {
   }
 
   loadData() {
-    this.medecinService.getmedecin(this.userIdAsNumber).subscribe(
+    this.medecinService.getmedecin(this.medecinId).subscribe(
       (data: Medecin) => {
         this.user = data;
       },

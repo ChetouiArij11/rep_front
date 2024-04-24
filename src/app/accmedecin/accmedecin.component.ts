@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-declare var Chart: any;
-@Component({
-  selector: 'app-interfacemedecin',
-  templateUrl: './interfacemedecin.component.html',
-  styleUrls: ['./interfacemedecin.component.css']
-})
-export class InterfacemedecinComponent implements OnInit {
 
+@Component({
+  selector: 'app-accmedecin',
+  templateUrl: './accmedecin.component.html',
+  styleUrls: ['./accmedecin.component.css']
+})
+export class AccmedecinComponent implements OnInit  {
+  isModalVisible: boolean = false;
 
   ngOnInit(): void {
     const selectTag = document.getElementById("medecinId") as HTMLSelectElement;
@@ -15,5 +15,6 @@ export class InterfacemedecinComponent implements OnInit {
       localStorage.setItem("medecinId", selectTag.value);
       window.location.href = "/interfacemedecin";
     });
+  }
 
-  }}
+}

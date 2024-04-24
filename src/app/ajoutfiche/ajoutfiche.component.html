@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="profile-card js-profile-card">
+    <div class="profile-card__img">
+      <img src="/assets/img/logo.PNG" alt="profile card">
+    </div>
+
+    <div class="profile-card__cnt js-profile-cnt">
+      <div class="profile-card__name">Rendez-vouya</div>
+      <div class="profile-card__txt"><strong></strong></div>
+      <div class="profile-card-loc">
+        <span class="profile-card-loc__icon">
+          <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+        </span>
+
+        <span class="profile-card-loc__txt">
+        </span>
+      </div>
+
+      <div class="profile-card-loc">
+        <div class="container">
+          <form id="ficheMedicaleForm" (ngSubmit)="submitForm()" #ficheMedicaleForm="ngForm">
+            <h3>Ajout d'une Fiche Médicale</h3>
+            <div class="mb-3" style="padding: 1%;">
+              <input [(ngModel)]="patient_id" name="patient_id" required type="number" class="form-control" placeholder="ID du patient">
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <input [(ngModel)]="medecin_id" name="medecin_id" required type="number" class="form-control" placeholder="ID du médecin">
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <input [(ngModel)]="rendezvous_id" name="rendezvous_id" required type="number" class="form-control" placeholder="ID du rendez-vous">
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <textarea [(ngModel)]="medicaments" name="medicaments" required class="form-control" placeholder="Médicaments prescrits"></textarea>
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <textarea [(ngModel)]="recettes" name="recettes" required class="form-control" placeholder="Recettes médicales"></textarea>
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <textarea [(ngModel)]="description" name="description" required class="form-control" placeholder="Description"></textarea>
+            </div>
+            <div class="mb-3" style="padding: 1%;">
+              <input [(ngModel)]="id_dossier" name="id_dossier" required class="form-control" placeholder="ID du dossier">
+            </div>
+            <input type="submit" value="Ajouter" class="btn btn-info" style="color: rgb(0, 0, 0); width:80%;display:block; margin:auto">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

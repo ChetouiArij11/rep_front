@@ -31,7 +31,7 @@ export class LoginmedecinComponent implements OnInit {
         if (response.medecinId) { // Check if patientID is defined
           this.authService.storeToken(response.token, response.medecinId);
           // Redirect to the profile page
-          this.router.navigate(['/profilemedecin']);
+          this.router.navigate(['/interfacemedecin']);
           // Display success message
           this.snackBar.open('Login successful. Welcome!', 'Close', { duration: 3000 });
         } else {

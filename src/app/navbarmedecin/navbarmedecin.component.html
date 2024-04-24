@@ -1,39 +1,33 @@
-<nav class="navbar navbar-expand-custom navbar-mainbg">
-  <a class="navbar-brand navbar-logo" href="#">&nbsp;<img src="/assets/img/logo_white-removebg-preview.png" width="30px" height="30px"></a>
-  <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <i class="fas fa-bars text-white"></i>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-      <ul class="navbar-nav ml-auto">
-          <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-          <li class="nav-item ">
-            <a class="nav-link" href="javascript:void(0);"></a>
-        </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="javascript:void(0);" routerLink="acc"><i class="fas fa-first-aid"></i> Acceuil</a>
-          </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="javascript:void(0);" routerLink="listemedecin"><i class="far fa-address-book"></i> Prendre un rendez-vous  </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-          </li>
-          <li class="nav-item active">
-            <a *ngIf="isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="profilemedecin">
-                <i class="far fa-user"></i> Mon compte
-            </a>
-            <a *ngIf="!isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="login">
-                <i class="far fa-address-book"></i> Se connecter
-            </a>
-        </li>
+<nav class="navbar  border-bottom border-body">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <div class="sidebar-header">
 
+        <div class="app-icon">
+          <img src="..\assets\img\lg-removebg-preview.png" width="190PX">
+        </div>
+      </div>
+    </a>
 
-      </ul>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link " routerLink="profilemedecin" style="color: ghostwhite;" aria-current="page" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="profilemedecin" style="color: ghostwhite;" aria-current="page" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-minus" viewBox="0 0 16 16">
+          <path d="M5.5 9.5A.5.5 0 0 1 6 9h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5"/>
+          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+        </svg>          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="inbox" style="color: ghostwhite;" aria-current="page" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-inbox" viewBox="0 0 16 16">
+          <path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374z"/>
+        </svg>        </a>
+      </li>
+    </ul>
   </div>
 </nav>

@@ -10,10 +10,10 @@ export class AcceuilComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const selectTag = document.getElementById("select-dept") as HTMLSelectElement;
+    const selectTag = document.getElementById("patientId") as HTMLSelectElement;
 
     selectTag.addEventListener("change", async (e) => {
-      localStorage.setItem("deptID", selectTag.value);
+      localStorage.setItem("patientId", selectTag.value);
       window.location.href = "/acc";
     });
   }

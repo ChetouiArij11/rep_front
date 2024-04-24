@@ -52,6 +52,7 @@ storeToken(token: string, medecinId: number): void {
   // Méthode pour supprimer le token du localStorage après la déconnexion
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('medecinId');
   }
 
    // Méthode pour obtenir l'ID de l'utilisateur connecté

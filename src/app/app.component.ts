@@ -24,7 +24,7 @@ export class AppComponent implements OnInit  {
 
   isMedecinRoute(): boolean {
     // Mettez ici la logique pour déterminer si l'utilisateur est sur la route de l'interface médecin
-    return this.router.url.includes('profilemedecin');
+    return this.router.url.includes('interfacemedecin');
   }
 
   getButtonText(): string {

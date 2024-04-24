@@ -10,11 +10,15 @@ import { Rendezvous } from '../models/rendezvous.model';
 export class RendezvousService {
   private baseUrl = 'http://localhost:5000/rendezvous';
   private patientId: number | null;
+  private medecinId: number | null;
 
   constructor(private http: HttpClient) {
     this.patientId = parseInt(localStorage.getItem('patientId') || '', 10);
+    this.medecinId = parseInt(localStorage.getItem('medecinId') || '', 10);
    }
-
+   getAllbyMedecin(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/medecin/${this.medecinId}`);
+  }
    prendreRendezVous(rendezvousData: any): Observable<any> {
     return this.http.post<any>(this.baseUrl, rendezvousData);
   }
