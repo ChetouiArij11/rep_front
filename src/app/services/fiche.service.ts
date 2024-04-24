@@ -18,6 +18,7 @@ export class FicheService {
   getAllFichesByMedecin(medecinId: number): Observable<FicheMedicale[]> {
     return this.http.get<FicheMedicale[]>(`${this.baseUrl}/medecin/${medecinId}`);
   }
+
   getFicheById(id: number): Observable<FicheMedicale> {
     return this.http.get<FicheMedicale>(`${this.baseUrl}/${id}`);
   }

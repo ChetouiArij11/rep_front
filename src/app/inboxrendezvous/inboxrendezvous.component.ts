@@ -52,4 +52,10 @@ export class InboxrendezvousComponent {
       );
     }
   }
+
+  getMailtoLink(patient_email: string): string {
+    const subject = encodeURIComponent('Confirmation de rendezvous');
+    const body = encodeURIComponent('Bonjour, ');
+    return `mailto:${patient_email}?subject=${subject}&body=${body}`;
+  }
 }

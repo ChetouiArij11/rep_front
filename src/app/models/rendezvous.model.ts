@@ -7,4 +7,5 @@ export interface Rendezvous {
   statut: string;
   num_telephone_patient: string;
   medecin_nom: string;
+  patient_email:string;
 }

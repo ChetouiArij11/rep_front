@@ -19,13 +19,16 @@
             <input [(ngModel)]="num_tel" name="num_tel" required type="tel" class="form-control" id="num_tel" placeholder="Donner le numéro de téléphone">
           </div>
           <div class="mb-3" style="padding: 1%;">
+            <input [(ngModel)]="patient_email" name="patient_email" required type="tel" class="form-control" id="patient_email" placeholder="Donner le email">
+          </div>
+          <div class="mb-3" style="padding: 1%;">
             <label for="date_rendezvous">Date souhaitée pour vous rencontrer !</label>
             <input [(ngModel)]="date_rendezvous" name="date_rendezvous" required type="datetime-local" class="form-control" id="date_rendezvous" placeholder="Date souhaitée pour vous rencontrer !">
           </div>
           <div class="mb-3" style="padding: 1%;">
             <textarea [(ngModel)]="motif" name="motif" required class="form-control" id="motif" placeholder="Indiquez le motif de la consultation et s'il existe d'autres informations médicales"></textarea>
           </div>
-        
+
           <input type="submit" value="Confirmez votre rendez-vous" class="btn btn-info" style="color: white; width:80%;display:block; margin:auto">
         </form>
       </div>

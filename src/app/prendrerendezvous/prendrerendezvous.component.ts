@@ -8,8 +8,10 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./prendrerendezvous.component.css']
 })
 export class PrendrerendezvousComponent {
+  
   nompatient: string | undefined;
   num_tel: string | undefined;
+  patient_email:string | undefined;
   date_rendezvous: string | undefined;
   motif: string | undefined;
   patientId: number | undefined;
@@ -28,6 +30,7 @@ export class PrendrerendezvousComponent {
         patient_id: this.patientId!,
         medecin_id: 5, // Utilisation de la valeur de medecinId
         nom_patient: this.nompatient!,
+        patient_email : this.patient_email!,
         date_heure: this.date_rendezvous!,
         statut: 'Nouveau',
         num_telephone_patient: this.num_tel!,
