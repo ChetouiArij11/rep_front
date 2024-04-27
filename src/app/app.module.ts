@@ -20,6 +20,8 @@ import { CardmedecinComponent } from './cardmedecin/cardmedecin.component';
 import { UpdateProfileComponent } from './updateprofile/updateprofile.component';
 import { initializeApp } from './app.initializers';
 import { AuthGuard } from './guards/auth.guard';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientResolver } from './resolvers/patient.resolver';
@@ -35,6 +37,7 @@ import { AjoutficheComponent } from './ajoutfiche/ajoutfiche.component';
 import { DejapatientComponent } from './dejapatient/dejapatient.component';
 import { ListeficheComponent } from './listefiche/listefiche.component';
 import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 
@@ -66,7 +69,8 @@ import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.comp
     DejapatientComponent,
     ListeficheComponent,
     InboxrendezvousComponent,
-  
+    SearchResultsComponent,
+
 
 
   ],
@@ -77,7 +81,10 @@ import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.comp
     HttpClientModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [
     PatientsService,

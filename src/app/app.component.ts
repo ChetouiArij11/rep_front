@@ -16,6 +16,7 @@ export class AppComponent implements OnInit  {
   ngOnInit() {
     // Vérifie si un token est déjà enregistré
     const token = localStorage.getItem('token');
+    this.isLoggedIn  = true;
     if (token) {
       //Redirige l'utilisateur vers la page d'accueil
       this.router.navigate(['/acc']);
@@ -28,6 +29,6 @@ export class AppComponent implements OnInit  {
   }
 
   getButtonText(): string {
-    return this.isLoggedIn ? 'Mon compte' : 'Se connecter';
+    return this.isLoggedIn ? 'Se connecter' : 'Mon compte';
   }
 }

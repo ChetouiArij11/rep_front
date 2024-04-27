@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FicheService } from '../services/fiche.service';
-import { MedecinService } from '../services/medecin.service'; // Importez le service MedecinService
+import { MedecinService } from '../services/medecin.service';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Importer MatSnackBar pour les alertes Snackbar
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-import { FicheMedicale } from '../models/fiche.model'; // Importez la classe FicheMedicale
+import { FicheMedicale } from '../models/fiche.model';
 
 @Component({
   selector: 'app-ajoutfiche',
   templateUrl: './ajoutfiche.component.html',
   styleUrls: ['./ajoutfiche.component.css']
-})export class AjoutficheComponent implements OnInit  {
-  patient_id: number = 0; // Valeur par défaut de patient_id
-  medecin_id: number = 0; // Valeur par défaut de medecin_id
-  rendezvous_id: number = 0; // Valeur par défaut de rendezvous_id
-  medicaments: string = ''; // Valeur par défaut de medicaments
-  recettes: string = ''; // Valeur par défaut de recettes
-  description: string = ''; // Valeur par défaut de description
-  id_dossier: number = 0; // Valeur par défaut de id_dossier
+})
+export class AjoutficheComponent implements OnInit {
+  patient_id: number = 0;
+  medecin_id: number = 0;
+  rendezvous_id: number = 0;
+  medicaments: string = '';
+  recettes: string = '';
+  description: string = '';
+  id_dossier: number = 0;
 
   isNavbarVisible: boolean | undefined;
 
@@ -24,6 +26,7 @@ import { FicheMedicale } from '../models/fiche.model'; // Importez la classe Fic
     private ficheService: FicheService,
     private medecinService: MedecinService,
     private router: Router,
+    private _snackBar: MatSnackBar, // Injecter MatSnackBar dans le constructeur
     private appComponent: AppComponent
   ) {}
 
@@ -60,7 +63,7 @@ import { FicheMedicale } from '../models/fiche.model'; // Importez la classe Fic
       this.ficheService.AjoutficheMedicale(fiche)
         .subscribe((response: any) => {
           console.log(response);
-          window.alert('Fiche médicale ajoutée avec succès !');
+          this.openSnackBar('Fiche médicale ajoutée avec succès!', ''); // Utiliser la méthode openSnackBar
         }, (error) => {
           console.log(error);
           window.alert('Une erreur s\'est produite lors de l\'ajout de la fiche médicale.');
@@ -68,5 +71,14 @@ import { FicheMedicale } from '../models/fiche.model'; // Importez la classe Fic
     } else {
       console.error("L'ajout de la fiche médicale a été annulé.");
     }
+  }
+
+  // Méthode pour afficher une alerte Snackbar
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }

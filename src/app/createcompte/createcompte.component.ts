@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PatientsService } from '../services/patients.service';
-import { Patient } from '../models/patients.model'; // Assurez-vous que le nom du modèle est correctement importé
+import { MatSnackBar } from '@angular/material/snack-bar'; // Importer MatSnackBar pour les alertes Snackbar
+import { Patient } from '../models/patients.model';
 
 @Component({
   selector: 'app-createcompte',
@@ -9,7 +10,6 @@ import { Patient } from '../models/patients.model'; // Assurez-vous que le nom d
 })
 export class CreatecompteComponent {
 
-  // Modèle pour les données du formulaire
   patient: Patient = {
     nom: '',
     prenom: '',
@@ -22,29 +22,28 @@ export class CreatecompteComponent {
     cin: ''
   };
 
-  constructor(private patientService: PatientsService) { }
+  constructor(
+    private patientService: PatientsService,
+    private _snackBar: MatSnackBar // Injecter MatSnackBar dans le constructeur
+  ) { }
 
   sexe: string = '';
 
   submitPatient() {
-    // Appel du service pour créer un nouveau patient
     this.patientService.createPatient(this.patient)
       .subscribe(
         response => {
-          // Traitement de la réponse de l'API (succès)
-          alert('Patient créé avec succès!');
-          // Réinitialiser le formulaire après la soumission réussie
+          // Afficher une alerte Snackbar pour indiquer que le patient a été créé avec succès
+          this.openSnackBar('Patient créé avec succès!', '');
           this.resetForm();
         },
         error => {
-          // Gestion des erreurs
           console.error('Erreur lors de la création du patient :', error);
           alert('Une erreur s\'est produite lors de la création du patient.');
         }
       );
   }
 
-  // Réinitialiser le formulaire après la soumission réussie
   resetForm() {
     this.patient = {
       nom: '',
@@ -57,5 +56,13 @@ export class CreatecompteComponent {
       autres_informations_medicales: '',
       cin: ''
     };
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }

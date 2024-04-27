@@ -1,0 +1,22 @@
+<!-- search-results.component.html -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div *ngFor="let medecin for medecin" class="card bg-dark text-light mb-3">
+        <img src="./assets/img/medecin.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="text-section">
+            <h4 class="card-title">{{ medecin.nom }}</h4>
+            <h5 class="card-subtitle mb-3">{{ medecin.specialite }}</h5>
+            <p class="card-text mb-0">Adresse: {{ medecin.adresse_cabinet }}</p>
+            <p class="card-text">Email: {{ medecin.email }}</p>
+            <p class="card-text mb-0">Numero du téléphone: {{ medecin.num_telephone }}</p>
+            <p class="card-text">Numero du fixe: {{ medecin.num_fixe_cabinet }}</p>
+            <button class="custom-btn btn-13" [routerLink]="['/prendre-rendezvous']" (click)="prendreRendezVous(medecin.id)">Prendre un rendez-vous</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

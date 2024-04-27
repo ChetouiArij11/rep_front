@@ -35,6 +35,29 @@
       </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div *ngIf="searchResults.length > 0"> <!-- Vérifiez si des résultats sont disponibles -->
+        <div class="card text-dark mb-3" *ngFor="let medecin of searchResults">
+          <img src="./assets/img/medecin.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="text-section">
+              <h4 class="card-title">{{ medecin?.nom }}</h4>
+              <h5 class="card-subtitle mb-3">{{ medecin?.specialite }}</h5>
+              <p class="card-text mb-0">Adresse: {{ medecin?.adresse_cabinet }}</p>
+              <p class="card-text">Email: {{ medecin?.email }}</p>
+              <p class="card-text mb-0">Numero du téléphone: {{ medecin?.num_telephone }}</p>
+              <p class="card-text">Numero du fixe: {{ medecin?.num_fixe_cabinet }}</p>
+ </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="searchResults.length === 0">
+        Aucun résultat trouvé.
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Ajoutez ici le lien vers le script Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

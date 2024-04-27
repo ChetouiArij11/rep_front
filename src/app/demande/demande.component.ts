@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DemandeService } from '../services/demande.service';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Importer MatSnackBar pour les alertes Snackbar
 
 @Component({
   selector: 'app-demande',
@@ -13,9 +14,12 @@ export class DemandeComponent {
   num_fixe_cabinet: string | undefined;
   email: string | undefined;
   specialite: string | undefined;
-  adresse_cabinet: string| undefined;
+  adresse_cabinet: string | undefined;
 
-  constructor(private demandeService: DemandeService) {}
+  constructor(
+    private demandeService: DemandeService,
+    private _snackBar: MatSnackBar // Injecter MatSnackBar dans le constructeur
+  ) {}
 
   onSubmit() {
     const formData = {
@@ -31,14 +35,21 @@ export class DemandeComponent {
     this.demandeService.ajouterDemande(formData).subscribe(
       (response: any) => {
         console.log('Demande ajoutée avec succès', response);
-        // Afficher l'alerte de succès
-        alert('Demande ajoutée avec succès');
+        this.openSnackBar('Demande ajoutée avec succès', ''); // Utiliser la méthode openSnackBar pour afficher l'alerte de succès
       },
       (error: any) => {
         console.error('Erreur lors de l\'ajout de la demande', error);
-        // Afficher l'alerte d'erreur
-        alert('Erreur lors de l\'ajout de la demande');
+        this.openSnackBar('Erreur lors de l\'ajout de la demande', ''); // Utiliser la méthode openSnackBar pour afficher l'alerte d'erreur
       }
     );
+  }
+
+  // Méthode pour afficher une alerte Snackbar
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }
