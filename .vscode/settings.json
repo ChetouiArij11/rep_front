@@ -3,5 +3,6 @@
         "createcompte",
         "ficheid",
         "medecin"
-    ]
+    ],
+    "editor.wordBasedSuggestions": "matchingDocuments"
 }
