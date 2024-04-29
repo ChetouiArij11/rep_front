@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                     // Push Docker image to Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', '112') {
+                    docker.withRegistry('https://index.docker.io/v1/', '14') {
                         // Push both the latest and tagged images
                         docker.image('arijchetoui1/frontend:${BUILD_ID}').push('${BUILD_ID}')
                     }
