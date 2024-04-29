@@ -26,7 +26,7 @@ pipeline {
         stage('Build & rename Docker Image') {
             steps {
                 script {
-                    // Construisez l'image Docker
+                    // Construire l'image Docker
                     bat "docker build -t frontend:${BUILD_ID} ."
                     bat "docker tag frontend:${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
                 }
@@ -36,23 +36,23 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // Exécutez le conteneur Docker en utilisant l'image construite
+                    // Exécuter le conteneur Docker en utilisant l'image construite
                     bat "docker run -d -p 8333:80 --name frontend_container_${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
                 }
             }
         }
 
         stage('login to dockerhub') {
-            steps{
+            steps {
                 // Se connecter à Docker Hub en utilisant les informations d'identification
-                bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
+                bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password %DOCKERHUB_CREDENTIALS_PSW%'
             }
         }
 
         stage('push image') {
-            steps{
+            steps {
                 // Pousser l'image Docker vers Docker Hub
-                bat 'docker push arijchetoui1/frontend:$BUILD_ID'
+                bat 'docker push arijchetoui1/frontend:${BUILD_ID}'
             }
         }
     }
