@@ -49,7 +49,7 @@ pipeline {
                     def dockerTag = "${BUILD_ID}".replaceAll("[^a-zA-Z0-9_.-]", "_") // Remplace les caractères non valides par des tirets bas
                     docker.withRegistry('https://index.docker.io/v1/', '14') {
                         // Push both the latest and tagged images
-                        docker.image('arijchetoui1/frontend:${BUILD_ID}').push('${BUILD_ID}')
+                        docker.image('arijchetoui1/frontend:${dockerTag}').push()
                     }
                 }
             }
