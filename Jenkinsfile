@@ -55,10 +55,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Toujours se déconnecter de Docker après l'exécution
-            bat 'docker logout'
-        }
-    }
-}
+   
