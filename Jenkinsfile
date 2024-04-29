@@ -42,17 +42,15 @@ pipeline {
             }
         }
 
-        stage('login to dockerhub') {
+         stage('Deploy Docker image') {
             steps {
-                // Se connecter à Docker Hub en utilisant les informations d'identification
-                bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password %DOCKERHUB_CREDENTIALS_PSW%'
-            }
-        }
-
-        stage('push image') {
-            steps {
-                // Pousser l'image Docker vers Docker Hub
-                bat 'docker push arijchetoui1/frontend:${BUILD_ID}'
+                script {
+                    // Push Docker image to Docker Hub
+                    docker.withRegistry('https://index.docker.io/v1/', 'credentialsId') {
+                        // Push both the latest and tagged images
+                        docker.image('arijchetoui1/frontend:${BUILD_ID}').push('${BUILD_ID}')
+                    }
+                }
             }
         }
     }
