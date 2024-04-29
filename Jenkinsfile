@@ -3,7 +3,6 @@ pipeline {
     environment {
         DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
         PATH = "${DOCKER_PATH}:${PATH}"
-        //DOCKERHUB_CREDENTIALS = credentials('DockerHub')
         NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
     }
     stages {
@@ -46,9 +45,12 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
+                    // Pousser l'image Docker vers Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'arijchetoui11-token', usernameVariable: 'arijchetoui11', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                    bat "echo ${DOCKERHUB_PASSWORD} | docker login -u arijchetoui1 --password-stdin"
-                    bat "docker push arijchetoui1/frontend:${BUILD_ID}"
+                        // Se connecter à Docker Hub en utilisant les informations d'identification
+                        bat "echo ${DOCKERHUB_PASSWORD} | docker login -u ${arijchetoui11} --password-stdin"
+                        // Pousser l'image Docker vers Docker Hub
+                        bat "docker push arijchetoui1/frontend:${BUILD_ID}"
                     }
                 }
             }
