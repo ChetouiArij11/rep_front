@@ -77,3 +77,4 @@ kubectl get svc frontend-service
 ```
 
 ![alt text](image.png)
+![alt text](image-1.png)
