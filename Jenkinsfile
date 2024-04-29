@@ -42,18 +42,25 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    // Pousser l'image Docker vers Docker Hub
-                    withCredentials([usernamePassword(credentialsId: 'arijchetoui11-token', usernameVariable: 'arijchetoui11', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                        // Se connecter à Docker Hub en utilisant les informations d'identification
-                        bat "echo ${DOCKERHUB_PASSWORD} | docker login -u ${arijchetoui11} --password-stdin"
-                        // Pousser l'image Docker vers Docker Hub
-                        bat "docker push arijchetoui1/frontend:${BUILD_ID}"
-                    }
-                }
+        stage('login to dockerhub') {
+            steps{
+                // Se connecter à Docker Hub en utilisant les informations d'identification
+                bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
             }
+        }
+
+        stage('push image') {
+            steps{
+                // Pousser l'image Docker vers Docker Hub
+                bat 'docker push arijchetoui1/frontend:$BUILD_ID'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Toujours se déconnecter de Docker après l'exécution
+            bat 'docker logout'
         }
     }
 }
