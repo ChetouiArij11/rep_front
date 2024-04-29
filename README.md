@@ -61,3 +61,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
             </a>
           </li>
 ```
+## install minikube :
+```
+docker run --rm -it --net=host --name=minikube gcr.io/k8s-minikube/kicbase:v0.0.23 sh -c "sudo /usr/local/bin/kubectl proxy --accept-hosts='.*' --address='0.0.0.0' --port=8001 --context=minikube"
+
+```
+
+## kubernets commandes :
+```
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+kubectl get svc frontend-service
+
+```
+
+![alt text](image.png)
