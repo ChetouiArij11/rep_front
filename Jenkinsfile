@@ -27,8 +27,8 @@ pipeline {
             steps {
                 script {
                     // Construire l'image Docker
-                    bat "docker build -t frontend:${BUILD_ID} ."
-                    bat "docker tag frontend:${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
+                    bat "docker build -t frontend:latest ."
+                    bat "docker tag frontend:latest arijchetoui1/frontend:latest"
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter le conteneur Docker en utilisant l'image construite
-                    bat "docker run -d -p 8333:80 --name frontend_container_${BUILD_ID} arijchetoui1/frontend:${BUILD_ID}"
+                    bat "docker run -d -p 8333:80 --name frontend_container_latest arijchetoui1/frontend:latest"
                 }
             }
         }
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                     // Push Docker image to Docker Hub
-                    def dockerTag = "${BUILD_ID}".replaceAll("[^a-zA-Z0-9_.-]", "_") // Remplace les caractères non valides par des tirets bas
+                    def dockerTag = "latest".replaceAll("[^a-zA-Z0-9_.-]", "_") // Remplace les caractères non valides par des tirets bas
                     docker.withRegistry('https://index.docker.io/v1/', '14') {
                         // Push both the latest and tagged images
                         docker.image('arijchetoui1/frontend:${dockerTag}').push()
