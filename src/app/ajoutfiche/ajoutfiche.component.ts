@@ -12,13 +12,13 @@ import { FicheMedicale } from '../models/fiche.model';
   styleUrls: ['./ajoutfiche.component.css']
 })
 export class AjoutficheComponent implements OnInit {
-  patient_id: number = 0;
-  medecin_id: number = 0;
-  rendezvous_id: number = 0;
-  medicaments: string = '';
-  recettes: string = '';
-  description: string = '';
-  id_dossier: number = 0;
+  patient_id: number | undefined;
+  medecin_id: number | undefined;
+
+  medicaments: string | undefined ;
+  recettes: string | undefined ;
+  description: string | undefined ;
+
 
   isNavbarVisible: boolean | undefined;
 
@@ -50,11 +50,11 @@ export class AjoutficheComponent implements OnInit {
     const fiche = {
       patient_id: this.patient_id,
       medecin_id: this.medecin_id,
-      rendezvous_id: this.rendezvous_id,
+
       medicaments: this.medicaments,
       recettes: this.recettes,
       description: this.description,
-      id_dossier: this.id_dossier
+
     };
 
     const isConfirmed = window.confirm('Confirmez-vous l\'ajout de la fiche médicale ?');

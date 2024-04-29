@@ -28,9 +28,6 @@
                 <input [(ngModel)]="fiche.medecin_id" name="medecin_id" required type="number" class="form-control" placeholder="ID du médecin">
               </div>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
-                <input [(ngModel)]="fiche.rendezvous_id" name="rendezvous_id" required type="number" class="form-control" placeholder="ID du rendez-vous">
-              </div>
-              <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <textarea [(ngModel)]="fiche.medicaments" name="medicaments" required class="form-control" placeholder="Médicaments prescrits"></textarea>
               </div>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
@@ -39,9 +36,7 @@
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <textarea [(ngModel)]="fiche.description" name="description" required class="form-control" placeholder="Description"></textarea>
               </div>
-              <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
-                <input [(ngModel)]="fiche.id_dossier" name="id_dossier" required class="form-control" placeholder="ID du dossier">
-              </div>
+
               <input type="submit" value="Mettre à jour" class="btn btn-info" style="color: rgb(0, 0, 0); width:80%;display:block; margin:auto">
             </form></div>
         </div>
