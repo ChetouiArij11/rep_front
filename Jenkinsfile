@@ -43,4 +43,18 @@ pipeline {
             }
         }
     }
+
+    stage('Push Docker Image to Docker Hub') {
+    steps {
+        script {
+            withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                bat "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+                bat "docker push arijchetoui1/frontend:${BUILD_ID}"
+            }
+        }
+    }
+}
+
+
+
 }
