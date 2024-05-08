@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: arijchetoui1/frontend:latest
+        image: arijchetoui1/frontend:25
         ports:
         - containerPort: 8333  # Port sur lequel votre application écoute

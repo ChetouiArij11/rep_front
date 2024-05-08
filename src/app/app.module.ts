@@ -38,6 +38,7 @@ import { DejapatientComponent } from './dejapatient/dejapatient.component';
 import { ListeficheComponent } from './listefiche/listefiche.component';
 import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { QuisommeComponent } from './quisomme/quisomme.component';
 
 
 
@@ -70,6 +71,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ListeficheComponent,
     InboxrendezvousComponent,
     SearchResultsComponent,
+    QuisommeComponent,
 
 
 

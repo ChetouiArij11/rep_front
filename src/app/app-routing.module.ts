@@ -18,6 +18,7 @@ import { AjoutficheComponent } from './ajoutfiche/ajoutfiche.component';
 import { DejapatientComponent } from './dejapatient/dejapatient.component';
 import { ListeficheComponent } from './listefiche/listefiche.component';
 import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
+import { QuisommeComponent } from './quisomme/quisomme.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
 { path: 'dejapatient', component: ListeficheComponent},
 { path: 'update-fiche/:id', component: DejapatientComponent },
 { path: 'inbox', component: InboxrendezvousComponent },
+{ path: 'qui-sommes-nous', component: QuisommeComponent },
 ];
 
 @NgModule({

@@ -23,25 +23,71 @@
             <h3>Inscription fiche praticien</h3>
             <h4>Remplissez ce formulaire pour créer votre fiche praticien</h4>
             <fieldset>
-              <input placeholder="Votre CIN" type="text" name="cin" tabindex="1" required autofocus [(ngModel)]="cin" #cinInput="ngModel">
+             <input placeholder="Votre CIN" class="form-control" type="text" name="cin" tabindex="1" required autofocus [(ngModel)]="cin" #cinInput="ngModel">
             </fieldset>
             <fieldset>
-              <input placeholder="Votre nom" type="text" name="nom" tabindex="2" required [(ngModel)]="nomcomp" #nomInput="ngModel">
+              <input placeholder="Votre nom" class="form-control" type="text" name="nom" tabindex="2" required [(ngModel)]="nomcomp" #nomInput="ngModel">
             </fieldset>
             <fieldset>
-              <input placeholder="Numero de téléphone" type="tel" name="telephone" tabindex="3" required [(ngModel)]="num_telephone" #telephoneInput="ngModel">
+              <input placeholder="Numero de téléphone" class="form-control" type="tel" name="telephone" tabindex="3" required [(ngModel)]="num_telephone" #telephoneInput="ngModel">
             </fieldset>
             <fieldset>
-              <input placeholder="Numero de cabinet" type="tel" name="cabinet" tabindex="4" required [(ngModel)]="num_fixe_cabinet" #cabinetInput="ngModel">
+              <input placeholder="Numero de cabinet" class="form-control" type="tel" name="cabinet" tabindex="4" required [(ngModel)]="num_fixe_cabinet" #cabinetInput="ngModel">
             </fieldset>
             <fieldset>
-              <input placeholder="Votre email" type="email" name="email" tabindex="5" required [(ngModel)]="email" #emailInput="ngModel">
+              <input placeholder="Votre email" class="form-control" type="email" name="email" tabindex="5" required [(ngModel)]="email" #emailInput="ngModel">
             </fieldset>
             <fieldset>
-              <input placeholder="Votre spécialité" type="text" name="specialite" tabindex="6" required [(ngModel)]="specialite" #specialiteInput="ngModel">
+              <select name="specialite" tabindex="6" required [(ngModel)]="specialite" #specialiteInput="ngModel" class="form-select" aria-label="Default select example">
+                <option selected>Choisissez une spécialité</option>
+                <option value="Allergologie" >Allergologie</option>
+                <option value="Anesthésiologie">Anesthésiologie</option>
+                <option value="Angiologie">Angiologie</option>
+                <option value="Cancérologie">Cancérologie</option>
+                <option value="Cardiologie">Cardiologie</option>
+                <option value="Chirurgie cardiaque">Chirurgie cardiaque</option>
+                <option value="Chirurgie générale">Chirurgie générale</option>
+                <option value="Chirurgie maxillo-faciale">Chirurgie maxillo-faciale</option>
+                <option value="Chirurgie orthopédique">Chirurgie orthopédique</option>
+                <option value="Chirurgie plastique et reconstructive">Chirurgie plastique et reconstructive</option>
+                <option value="Chirurgie thoracique">Chirurgie thoracique</option>
+                <option value="Chirurgie vasculaire">Chirurgie vasculaire</option>
+                <option value="Dermatologie">Dermatologie</option>
+                <option value="Endocrinologie">Endocrinologie</option>
+                <option value="Gastro-entérologie">Gastro-entérologie</option>
+                <option value="Gériatrie">Gériatrie</option>
+                <option value="Gynécologie">Gynécologie</option>
+                <option value="Hématologie">Hématologie</option>
+                <option value="Immunologie">Immunologie</option>
+                <option value="Infectiologie">Infectiologie</option>
+                <option value="Médecine interne">Médecine interne</option>
+                <option value="Médecine nucléaire">Médecine nucléaire</option>
+                <option value="Néonatologie">Néonatologie</option>
+                <option value="Néphrologie">Néphrologie</option>
+                <option value="Neurochirurgie">Neurochirurgie</option>
+                <option value="Neurologie">Neurologie</option>
+                <option value="Obstétrique">Obstétrique</option>
+                <option value="Odontologie">Odontologie</option>
+                <option value="Oncologie médicale">Oncologie médicale</option>
+                <option value="Ophtalmologie">Ophtalmologie</option>
+                <option value="Orthodontie">Orthodontie</option>
+                <option value="Orthopédie">Orthopédie</option>
+                <option value="Oto-rhino-laryngologie (ORL)">Oto-rhino-laryngologie (ORL)</option>
+                <option value="Pédiatrie">Pédiatrie</option>
+                <option value="Pneumologie">Pneumologie</option>
+                <option value="Podologie">Podologie</option>
+                <option value="Psychiatrie">Psychiatrie</option>
+                <option value="Radiologie">Radiologie</option>
+                <option value="Rhumatologie">Rhumatologie</option>
+                <option value="Stomatologie">Stomatologie</option>
+                <option value="Toxicologie">Toxicologie</option>
+                <option value="Urologie">Urologie</option>
+                <option value="Vénérologie">Vénérologie</option>
+              </select>
             </fieldset>
+
             <fieldset>
-              <input placeholder="Votre adresse de cabinet" type="text" name="adresse_cabinet" tabindex="7" required [(ngModel)]="adresse_cabinet" #adresseCabinetInput="ngModel">
+              <input placeholder="Votre adresse de cabinet" class="form-control" type="text" name="adresse_cabinet" tabindex="7" required [(ngModel)]="adresse_cabinet" #adresseCabinetInput="ngModel">
             </fieldset>
 
             <fieldset>
@@ -49,7 +95,7 @@
             </fieldset>
           </form>
         </div>
-        
+
       </div>
     </div>
   </div>
