@@ -28,7 +28,7 @@ const routes: Routes = [
 {path: 'acc', component: AcceuilComponent},
 {path:'login',component:LoginComponent},
 {path:'createcompte',component:CreatecompteComponent},
-{path:'prendre-rendezvous',component:PrendrerendezvousComponent},
+{ path: 'prendre-rendezvous/:id', component: PrendrerendezvousComponent },
 {path:'listemedecin',component:ListemedecinComponent},
 //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: { patient: PatientResolver } },
 //{path:'profile/updateprofile',component:UpdateprofileComponent},

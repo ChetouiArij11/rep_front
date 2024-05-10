@@ -12,7 +12,7 @@
         <p class="card-text">Email: {{ medecin?.email }}</p>
         <p class="card-text mb-0">numero du telephone: {{ medecin?.num_telephone }}</p>
         <p class="card-text">numero du fix: {{ medecin?.num_fixe_cabinet }}</p>
-        <button class="custom-btn btn-13" [routerLink]="['/prendre-rendezvous']" (click)="prendreRendezVous(medecin?.id)">Prendre un rendez-vous</button>
+        <button class="custom-btn btn-13" [routerLink]="'/prendre-rendezvous/' + medecin?.id" (click)="prendreRendezVous(medecin?.id)">Prendre un rendez-vous</button>
       </div>
 
     </div>
