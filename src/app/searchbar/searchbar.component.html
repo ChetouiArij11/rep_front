@@ -92,8 +92,8 @@
               <p class="card-text mb-0">Numero du téléphone: {{ medecin?.num_telephone }}</p>
               <p class="card-text">Numero du fixe: {{ medecin?.num_fixe_cabinet }}</p>
 
-              <button class="custom-btn btn-13" [routerLink]="['/prendre-rendezvous']" (click)="prendreRendezVous(medecin?.id)">Prendre un rendez-vous</button>
-      
+              <button class="custom-btn btn-13" [routerLink]="'/prendre-rendezvous/' + medecin?.id" (click)="prendreRendezVous(medecin?.id)">Prendre un rendez-vous</button>
+
  </div>
           </div>
         </div>
