@@ -28,7 +28,7 @@ section.section.section-small {
 section.section {
     margin-top: 25px;
     background-color: #fff;
-    border-top: 10px solid rgb(204, 0, 119);
+    border-top: 10px solid rgb(161, 51, 212);
     border-radius: 3px;
     box-shadow: -1px 0 2px 0 rgba(0,0,0,.12), 1px 0 2px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.12);
 }
@@ -47,7 +47,7 @@ section.section {
 .btn-kootour, .btn-kootour-bold {
     border-radius: 3px;
     color: #fff;
-    background-color: rgb(204, 0, 119);
+    background-color: rgb(161, 51, 212);
     width: 200px;
 }
 
@@ -94,7 +94,7 @@ section.section {
 .subtitle {
     font-size: 18px;
     font-size: 1.8rem;
-    color: rgb(204, 0, 119);
+    color: rgb(161, 51, 212);
     padding:0;
 }
 
