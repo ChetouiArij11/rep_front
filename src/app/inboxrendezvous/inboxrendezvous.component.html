@@ -35,7 +35,7 @@
           {{ rendezvous.nom_patient }} <!-- Remplacez par la propriété correcte pour le médecin -->
         </div>
         <div class="col-sm-12 col-lg-3 p-0 p-0 pl-lg-5">
-          {{ rendezvous.date_heure }} <!-- Remplacez par la propriété correcte pour la date et l'heure -->
+          {{ rendezvous.date_heure | date:'dd/MM/yyyy HH:mm' }} <!-- Remplacez par la propriété correcte pour la date et l'heure -->
         </div>
         <div class="col-sm-12 col-lg-3 p-0 p-0 pl-lg-5">
           {{ rendezvous.statut }} <!-- Remplacez par la propriété correcte pour l'état -->

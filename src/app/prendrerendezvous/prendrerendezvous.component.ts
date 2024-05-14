@@ -57,13 +57,15 @@ export class PrendrerendezvousComponent {
           .subscribe((response) => {
             console.log(response);
             this.openSnackBar('Rendez-vous pris avec succès !', '');
-            this.router.navigate(['/acc']);
+            this.router.navigate(['/profile']);
           }, (error) => {
             console.error(error);
+            this.router.navigate(['/login']);
           });
       }
     } else {
-      console.error("Impossible de récupérer l'ID du patient connecté ou l'ID du médecin sélectionné.");
+      alert("Vous ne pouvez pas prendre un rendez-vous, vous devez être connecté ! Connectez-vous .");
+      this.router.navigate(['/login']);
     }
   }
 

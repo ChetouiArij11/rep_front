@@ -21,18 +21,19 @@
           <div *ngIf="fiche">
             <form id="ficheMedicaleForm" (ngSubmit)="updatefiche()" #ficheMedicaleForm="ngForm">
               <h3>Mise à jour d'une Fiche Médicale</h3>
+              <label>ID patient</label>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <input [(ngModel)]="fiche.patient_id" name="patient_id" required type="number" class="form-control" placeholder="ID du patient">
               </div>
-              <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
-                <input [(ngModel)]="fiche.medecin_id" name="medecin_id" required type="number" class="form-control" placeholder="ID du médecin">
-              </div>
+              <label>Medicaments:</label>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <textarea [(ngModel)]="fiche.medicaments" name="medicaments" required class="form-control" placeholder="Médicaments prescrits"></textarea>
               </div>
+              <label>Recettes:</label>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <textarea [(ngModel)]="fiche.recettes" name="recettes" required class="form-control" placeholder="Recettes médicales"></textarea>
               </div>
+              <label>Description:</label>
               <div *ngIf="fiche" class="mb-3" style="padding: 1%;">
                 <textarea [(ngModel)]="fiche.description" name="description" required class="form-control" placeholder="Description"></textarea>
               </div>

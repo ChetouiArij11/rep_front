@@ -45,6 +45,9 @@ const routes: Routes = [
 { path: 'update-fiche/:id', component: DejapatientComponent },
 { path: 'inbox', component: InboxrendezvousComponent },
 { path: 'qui-sommes-nous', component: QuisommeComponent },
+{ path: 'dejapatient/profilemedecin', component: ProfilemedecinComponent },
+{ path: 'dejapatient/inbox', component: InboxrendezvousComponent },
+{ path: 'inbox/profilemedecin', component: ProfilemedecinComponent },
 ];
 
 @NgModule({
