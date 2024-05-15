@@ -14,6 +14,14 @@ pipeline {
                 }
             }
         }
+        stage('Install Node.js Dependencies') {
+            steps {
+                script {
+                    // Exécuter npm install pour installer les dépendances Node.js
+                     bat "npm install"
+                }
+            }
+        }
 
         stage('Checkout') {
             steps {
