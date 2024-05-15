@@ -53,6 +53,14 @@ pipeline {
                 }
             }
         }
+          stage('Run Selenium Tests') {
+            steps {
+                script {
+                     // Exécuter les tests E2E avec Selenium
+                      bat "node ./e2e/testaccpage.js"
+                }
+            }
+        }
     }
 
 }
