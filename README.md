@@ -85,3 +85,16 @@ kubectl get svc frontend-service
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
+
+
+## test phase  e2e doc : 
+
+```
+node .\testaccpage.js
+```
+
+![alt text](image-4.png)
+
+![alt text](image-6.png)
+
+![alt text](image-5.png)
