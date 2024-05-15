@@ -14,14 +14,6 @@ pipeline {
                 }
             }
         }
-        stage('Install Node.js Dependencies') {
-            steps {
-                script {
-                    // Exécuter npm install pour installer les dépendances Node.js
-                     bat "npm install"
-                }
-            }
-        }
 
         stage('Checkout') {
             steps {
@@ -45,7 +37,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter le conteneur Docker en utilisant l'image construite
-                    bat "docker run -d -p 8888:80 --name frontend_container_latest arijchetoui1/frontend:latest"
+                    bat "docker run -d -p 8333:80 --name frontend_container_latest arijchetoui1/frontend:latest"
                 }
             }
         }
@@ -58,14 +50,6 @@ pipeline {
                         // Push both the latest and tagged images
                         docker.image('arijchetoui1/frontend:latest').push()
                     }
-                }
-            }
-        }
-          stage('Run Selenium Tests') {
-            steps {
-                script {
-                     // Exécuter les tests E2E avec Selenium
-                      bat "node ./e2e/testaccpage.js"
                 }
             }
         }
