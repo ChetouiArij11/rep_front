@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   patientId!: number;
   user!: Patient;
   errorMessage: string = '';
-
+  listemedecin: string = '/listemedecin';
   constructor(
     private patientsService: PatientsService,
     private authService: AuthService, // Injectez AuthService

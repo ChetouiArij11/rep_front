@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
 import { LoginComponent } from './login/login.component';
 import { CreatecompteComponent } from './createcompte/createcompte.component';
 import { PatientsService } from './services/patients.service';
@@ -39,6 +39,7 @@ import { ListeficheComponent } from './listefiche/listefiche.component';
 import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { QuisommeComponent } from './quisomme/quisomme.component';
+import { CalenderComponent } from './calender/calender.component';
 
 
 
@@ -72,6 +73,7 @@ import { QuisommeComponent } from './quisomme/quisomme.component';
     InboxrendezvousComponent,
     SearchResultsComponent,
     QuisommeComponent,
+    CalenderComponent,
 
 
 
@@ -86,7 +88,8 @@ import { QuisommeComponent } from './quisomme/quisomme.component';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CalendarModule
   ],
   providers: [
     PatientsService,

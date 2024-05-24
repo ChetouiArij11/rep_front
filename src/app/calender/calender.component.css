@@ -1,0 +1,25 @@
+.container {
+  position: relative; /* Set the container as the relative positioned parent */
+  display: block; /* Adjust container's size to the image */
+}
+
+.background-image {
+  display: block; /* Ensures the image behaves like a block element */
+  margin-left: 110px;
+}
+
+ejs-calendar  {
+  margin-top: 50px;
+
+  position: absolute; /* Position the calendar absolutely within the container */
+  top: 10px; /* Adjust the values as needed */
+
+  z-index: 1; /* Ensures the calendar appears above the image */
+  background: white; /* Optional: Adds a background color to the calendar */
+  padding: 5px; /* Optional: Adds padding around the calendar */
+  border: 1px solid #ffffff; /* Optional: Adds a border around the calendar */
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+

@@ -19,6 +19,7 @@ import { DejapatientComponent } from './dejapatient/dejapatient.component';
 import { ListeficheComponent } from './listefiche/listefiche.component';
 import { InboxrendezvousComponent } from './inboxrendezvous/inboxrendezvous.component';
 import { QuisommeComponent } from './quisomme/quisomme.component';
+import { CalenderComponent } from './calender/calender.component';
 
 
 
@@ -47,7 +48,11 @@ const routes: Routes = [
 { path: 'qui-sommes-nous', component: QuisommeComponent },
 { path: 'dejapatient/profilemedecin', component: ProfilemedecinComponent },
 { path: 'dejapatient/inbox', component: InboxrendezvousComponent },
-{ path: 'inbox/profilemedecin', component: ProfilemedecinComponent },
+{ path: 'interfacemedecin/inbox/profilemedecin', component: ProfilemedecinComponent },
+{ path: 'interfacemedecin/profilemedecin/inbox', component: InboxrendezvousComponent },
+{ path: 'interfacemedecin/profilemedecin', component: ProfilemedecinComponent },
+{ path: 'interfacemedecin/inbox', component: InboxrendezvousComponent },
+{ path: 'calender', component: CalenderComponent },
 ];
 
 @NgModule({
