@@ -5,6 +5,11 @@ async function runTest() {
   let driver = await new Builder().forBrowser("chrome").build();
 
   try {
+     // Ouvrir la page "http://localhost:4200/acc"
+     await driver.get("http://localhost:4200/acc");
+
+     // Attendre 5 secondes
+     await driver.sleep(5000);
     await driver.get("http://localhost:4200/login");
 
     // Attendre que le champ email soit visible
