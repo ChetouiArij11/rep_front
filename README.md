@@ -26,6 +26,31 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+# lancement de build jenkins automatiquement 
+
+![alt text](image-7.png)
+
+
+## install le ngrok 
+![alt text](image-8.png)
+
+## lancer le terminal de ngrok 
+![alt text](image-11.png)
+
+![alt text](image-10.png)
+
+## webhook du github 
+![alt text](image-12.png)
+
+## dans pipeline cocher GitHub hook trigger for GITScm polling
+![alt text](image-13.png)
+
+## check pour le dernier push 
+![alt text](image-14.png)
+![alt text](image-15.png)
+![alt text](image-16.png)
+![alt text](image-17.png)
+![alt text](image-18.png)
 
 
 # deploy stage 
