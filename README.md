@@ -27,45 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-## status de rendevous 
-```
-        <div class="products-row">
-          <button class="cell-more-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </button>
-            <div class="product-cell image">
-              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
-              <span>Ocean</span>
-            </div>
-          <div class="product-cell category"><span class="cell-label">Category:</span>Furniture</div>
-          <div class="product-cell status-cell">
-            <span class="cell-label">Status:</span>
-            <span class="status active">Active</span>
-          </div>
-          <div class="product-cell sales"><span class="cell-label">Sales:</span>11</div>
-          <div class="product-cell stock"><span class="cell-label">Stock:</span>36</div>
-          <div class="product-cell price"><span class="cell-label">Price:</span>$560</div>
-        </div>
 
 
-
-
-
-
-           <li class="nav-item ">
-              <a class="nav-link" href="javascript:void(0);" routerLink="acc"><i class="fas fa-first-aid"></i>  <a *ngIf="isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="profilemedecin">
-                <i class="far fa-user"></i> Mon compte
-            </a>
-            <a *ngIf="!isLoggedIn" class="nav-link" href="javascript:void(0);" routerLink="login">
-                <i class="far fa-address-book"></i> Se connecter
-            </a>
-          </li>
-```
-## install minikube :
-```
-docker run --rm -it --net=host --name=minikube gcr.io/k8s-minikube/kicbase:v0.0.23 sh -c "sudo /usr/local/bin/kubectl proxy --accept-hosts='.*' --address='0.0.0.0' --port=8001 --context=minikube"
-
-```
 
 ## kubernets commandes :
 ```
