@@ -42,19 +42,36 @@ pipeline {
             }
         }
 
-         stage('Deploy Docker image') {
+        stage('Selenium Tests') {
+            steps {
+                script {
+                    // Télécharger et installer ChromeDriver si nécessaire
+                    bat """
+                    if not exist chromedriver.exe (
+                        curl -L https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_win32.zip -o chromedriver.zip
+                        tar -xf chromedriver.zip
+                    )
+                    """
+
+                    // Ajouter ChromeDriver au PATH
+                    env.PATH = "${env.WORKSPACE};${env.PATH}"
+
+                    // Exécuter les tests Selenium
+                    bat "node .\\e2e\\testPRV.js"
+                }
+            }
+        }
+
+        stage('Deploy Docker image') {
             steps {
                 script {
                     // Push Docker image to Docker Hub
-                     docker.withRegistry('https://index.docker.io/v1/', '14') {
+                    docker.withRegistry('https://index.docker.io/v1/', '14') {
                         // Push both the latest and tagged images
                         docker.image('arijchetoui1/frontend:latest').push()
                     }
                 }
             }
         }
-
-        
     }
-
 }
