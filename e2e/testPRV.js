@@ -5,11 +5,11 @@ async function runTest() {
   let driver = await new Builder().forBrowser("chrome").build();
 
   try {
-     // Ouvrir la page "http://localhost:4200/acc"
-     await driver.get("http://localhost:4200/acc");
+    // Ouvrir la page "http://localhost:4200/acc"
+    await driver.get("http://localhost:4200/acc");
 
-     // Attendre 5 secondes
-     await driver.sleep(5000);
+    // Attendre 5 secondes
+    await driver.sleep(5000);
     await driver.get("http://localhost:4200/login");
 
     // Attendre que le champ email soit visible
@@ -49,27 +49,18 @@ async function runTest() {
 
     // Ajouter une pause pour observer la page de profil
     await driver.sleep(5000);
+
     // Localiser le bouton "Prendre un rendez-vous cher un medecin"
     let rendezVousButton = await driver.findElement(
-      By.xpath(
-        "//button[contains(text(), 'Prendre un rendez-vous cher un medecin')]"
-      )
+      By.xpath("//button[contains(text(), 'Prendre un rendez-vous cher un medecin')]")
     );
 
-    // Défilement vers le bouton
-    await driver.executeScript(
-      "arguments[0].scrollIntoView(true);",
-      rendezVousButton
-    );
-    await driver.sleep(1000); // Pause pour permettre le défilement
-
-    // Attendre que le bouton soit cliquable
+    // Assurer que le bouton est visible et cliquable
+    await driver.executeScript("arguments[0].scrollIntoView(true);", rendezVousButton);
+    await driver.wait(until.elementIsVisible(rendezVousButton), 70000);
     await driver.wait(until.elementIsEnabled(rendezVousButton), 70000);
 
-    // Déplacer le curseur de la souris sur le bouton avant de cliquer
-    await driver.actions().move({ origin: rendezVousButton }).perform();
-
-    // Cliquer sur le bouton avec JavaScript
+    // Cliquer sur le bouton avec JavaScript pour éviter les erreurs de clic
     await driver.executeScript("arguments[0].click();", rendezVousButton);
     await driver.sleep(5000);
 
@@ -81,26 +72,16 @@ async function runTest() {
 
     // Localiser le bouton "Prendre un rendez-vous" pour "Dr. Dupont"
     let prendreRendezVousButton = await driver.findElement(
-      By.xpath(
-        "//h4[text()='Dr. Dupont']/following-sibling::button[contains(text(), 'Prendre un rendez-vous')]"
-      )
+      By.xpath("//h4[text()='Dr. Dupont']/following-sibling::button[contains(text(), 'Prendre un rendez-vous')]")
     );
 
-    // Défilement vers le bouton
-    await driver.executeScript(
-      "arguments[0].scrollIntoView(true);",
-      prendreRendezVousButton
-    );
-    await driver.sleep(2000); // Pause pour permettre le défilement
-
-    // Attendre que le bouton soit cliquable
+    // Assurer que le bouton est visible et cliquable
+    await driver.executeScript("arguments[0].scrollIntoView(true);", prendreRendezVousButton);
+    await driver.wait(until.elementIsVisible(prendreRendezVousButton), 70000);
     await driver.wait(until.elementIsEnabled(prendreRendezVousButton), 70000);
 
-    // Cliquer sur le bouton avec JavaScript
-    await driver.executeScript(
-      "arguments[0].click();",
-      prendreRendezVousButton
-    );
+    // Cliquer sur le bouton avec JavaScript pour éviter les erreurs de clic
+    await driver.executeScript("arguments[0].click();", prendreRendezVousButton);
 
     // Ajouter une pause pour observer le clic sur le bouton de prise de rendez-vous
     await driver.sleep(3000);

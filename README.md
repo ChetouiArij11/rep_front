@@ -86,3 +86,7 @@ node .\testaccpage.js
 ![alt text](image-6.png)
 
 ![alt text](image-5.png)
+
+## Vidéo Tutoriel
+
+[Regardez la vidéo](./testPRV.js%20-%20frontend%20-%20Visual%20Studio%20Code%202024-05-29%2000-43-46.mp4)
