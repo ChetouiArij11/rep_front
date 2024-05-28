@@ -52,9 +52,11 @@ pipeline {
                         tar -xf chromedriver.zip
                     )
                     """
+                    // Installer les dépendances npm pour les tests Selenium
+                    bat "cd e2e && npm install"
 
                     // Ajouter ChromeDriver au PATH
-                    env.PATH = "${env.WORKSPACE};${env.PATH}"
+                    env.PATH = "${env.WORKSPACE}\\e2e\\node_modules\\.bin;${env.PATH}"
 
                     // Exécuter les tests Selenium
                     bat "node .\\e2e\\testPRV.js"
