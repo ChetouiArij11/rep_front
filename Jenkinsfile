@@ -26,7 +26,7 @@ pipeline {
         stage('Build & rename Docker Image') {
             steps {
                 script {
-                    // image arijchetoui1/frontend:latest
+
                     bat "docker build -t frontend:latest ."
                     bat "docker tag frontend:latest arijchetoui1/frontend:latest"
                 }
