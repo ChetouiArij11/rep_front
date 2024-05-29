@@ -26,7 +26,7 @@ pipeline {
         stage('Build & rename Docker Image') {
             steps {
                 script {
-                    // Construire l'image Docker
+                    
                     bat "docker build -t frontend:latest ."
                     bat "docker tag frontend:latest arijchetoui1/frontend:latest"
                 }
@@ -45,9 +45,9 @@ pipeline {
          stage('Deploy Docker image') {
             steps {
                 script {
-                    
+
                      docker.withRegistry('https://index.docker.io/v1/', '14') {
-                        // Push both the latest and tagged images
+
                         docker.image('arijchetoui1/frontend:latest').push()
                     }
                 }
