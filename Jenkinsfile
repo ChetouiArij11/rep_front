@@ -36,7 +36,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // Exécuter le conteneur Docker en utilisant l'image construite
+
                     bat "docker run -d -p 8380:80 --name frontend_container_latest arijchetoui1/frontend:latest"
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
          stage('Deploy Docker image') {
             steps {
                 script {
-                    // Push Docker image to Docker Hub
+                    
                      docker.withRegistry('https://index.docker.io/v1/', '14') {
                         // Push both the latest and tagged images
                         docker.image('arijchetoui1/frontend:latest').push()
