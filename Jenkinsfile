@@ -59,9 +59,9 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment, service, and ingress configurations
-                    bat "kubectl apply -f deployment.yaml --request-timeout=5m"
-                    bat "kubectl apply -f service.yaml --request-timeout=5m"
-                    bat "kubectl apply -f ingress.yaml --request-timeout=5m"
+                    bat "kubectl apply -f deployment.yaml"
+                    bat "kubectl apply -f service.yaml"
+                    bat "kubectl apply -f ingress.yaml"
 
                     // Optionally, you can get the service details
                     bat "kubectl get svc frontend-service"
