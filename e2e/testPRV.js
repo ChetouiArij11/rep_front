@@ -93,12 +93,12 @@ async function runTest() {
     );
 
     // Remplir et soumettre le formulaire de prise de rendez-vous
-    await driver.findElement(By.id("nompatient")).sendKeys("ali");
-    await driver.findElement(By.id("num_tel")).sendKeys("55555555");
-    await driver.findElement(By.id("patient_email")).sendKeys("ali@gmail.com");
+    await driver.findElement(By.id("nompatient")).sendKeys("Eline chetoui");
+    await driver.findElement(By.id("num_tel")).sendKeys("98654123");
+    await driver.findElement(By.id("patient_email")).sendKeys("arijchetoui1@gmail.com");
     await driver
       .findElement(By.id("date_rendezvous"))
-      .sendKeys("2024-06-01T10:00"); // Date et heure souhaitées
+      .sendKeys("2024-07-22T10:00"); // Date et heure souhaitées
     await driver
       .findElement(By.id("motif"))
       .sendKeys("Motif de la consultation");
@@ -107,7 +107,7 @@ async function runTest() {
     );
     await confirmButton.click();
     // Ajouter une pause pour observer le clic sur le bouton de prise de rendez-vous
-    await driver.sleep(5000);
+    await driver.sleep(7000);
     console.log(
       "Le test de connexion et l'action de prise de rendez-vous ont réussi !"
     );
