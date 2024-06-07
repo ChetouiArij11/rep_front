@@ -4,6 +4,7 @@ pipeline {
         DOCKER_PATH = "C:\\Program Files\\Docker\\cli-plugins"
         PATH = "${DOCKER_PATH}:${PATH}"
         NODEJS_PATH = "C:\\Program Files (x86)\\nodejs"
+        KUBECONFIG = 'C:\\Program Files\\Jenkins\\.kube\\config'
     }
     stages {
         stage('Install Node.js and npm') {
@@ -33,14 +34,14 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                script {
+        // stage('Run Docker Container') {
+        //     steps {
+        //         script {
 
-                    bat "docker run -d -p 8380:80 --name frontend_container_latest arijchetoui1/frontend:latest"
-                }
-            }
-        }
+        //             bat "docker run -d -p 8380:80 --name frontend_container_latest arijchetoui1/frontend:latest"
+        //         }
+        //     }
+        // }
 
          stage('Deploy Docker image') {
             steps {
@@ -50,6 +51,20 @@ pipeline {
 
                         docker.image('arijchetoui1/frontend:latest').push()
                     }
+                }
+            }
+        }
+
+          stage('Kubernetes Deployment') {
+            steps {
+                script {
+                    // Apply Kubernetes deployment, service, and ingress configurations
+                    bat "kubectl apply -f deployment.yaml"
+                    bat "kubectl apply -f service.yaml"
+                    bat "kubectl apply -f ingress.yaml"
+
+                    // Optionally, you can get the service details
+                    bat "kubectl get svc frontend-service"
                 }
             }
         }
