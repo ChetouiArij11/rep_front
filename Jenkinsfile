@@ -63,8 +63,8 @@ pipeline {
                     bat "kubectl apply -f service.yaml"
                     bat "kubectl apply -f ingress.yaml"
 
-                    // Optionally, you can get the service details
-                    bat "kubectl get svc frontend-service"
+                    bat "kubectl get deployment"
+                    bat "kubectl get svc "
                 }
             }
         }
