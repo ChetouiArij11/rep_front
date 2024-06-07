@@ -62,9 +62,9 @@ pipeline {
                     bat "kubectl apply -f deployment.yaml"
                     bat "kubectl apply -f service.yaml"
                     bat "kubectl apply -f ingress.yaml"
-
                     bat "kubectl get deployment"
                     bat "kubectl get svc "
+                    bat "kubectl get svc --all-namespaces"
                 }
             }
         }
