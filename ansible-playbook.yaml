@@ -1,0 +1,41 @@
+---
+- name: Deploy Docker application
+  hosts: webservers
+  become: yes
+
+  vars:
+    docker_image: arijchetoui1/frontend:latest
+    container_name: frontend_container_latest
+
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: "{{ docker_image }}"
+        source: pull
+
+    - name: Stop and remove existing container
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+        force_kill: yes
+
+    - name: Run Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: always
+        ports:
+          - "8380:80"
+
+    - name: Verify Docker container is running
+      shell: "docker ps -q -f name={{ container_name }}"
+      register: result
+      failed_when: result.stdout == ""
+      changed_when: false
+
+    - name: Print running containers
+      shell: "docker ps"
+      register: ps_result
+    - debug:
+        var: ps_result.stdout_lines
