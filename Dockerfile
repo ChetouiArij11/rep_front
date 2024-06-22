@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:latest as node
+FROM node:latest AS node
 WORKDIR /app
 COPY . .
 COPY package*.json ./
