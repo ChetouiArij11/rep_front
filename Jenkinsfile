@@ -68,18 +68,6 @@ pipeline {
                 }
             }
         }
-
-        //   stage('Deploy with Ansible') {
-        //     steps {
-        //         script {
-        //             ansiblePlaybook credentialsId: 'your-ansible-vault-id',
-        //                             playbook: 'deploy.yaml',
-        //                             inventory: 'inventory.ini'
-        //         }
-        //     }
-        // }
-
-
     }
 
 }
