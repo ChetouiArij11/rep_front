@@ -72,15 +72,15 @@ pipeline {
                 def emailBody = """
                 Bonjour,
 
-                Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} s'est terminé avec le statut : ${currentBuild.result}.
-                Voir les détails à ${env.BUILD_URL}.
+                Le build  s'est terminé avec le statut : ${currentBuild.result}.
+                Voir les détails.
 
                 Merci,
                 Jenkins
                 """
 
                 emailext(
-                    subject: "Build ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    subject: "Build ${currentBuild.result}: ",
                     body: emailBody,
                     recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                     to: 'arijchetoui1@gmail.com'
@@ -90,12 +90,12 @@ pipeline {
         success {
             script {
                 emailext(
-                    subject: "Build Succès: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    subject: "Build Succès: ",
                     body: """
                     Bonjour,
 
-                    Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} a réussi.
-                    Voir les détails à ${env.BUILD_URL}.
+                    Le build  a réussi.
+
 
                     Merci,
                     Jenkins
@@ -108,12 +108,12 @@ pipeline {
         failure {
             script {
                 emailext(
-                    subject: "Build Échec: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    subject: "Build Échec: ",
                     body: """
                     Bonjour,
 
-                    Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} a échoué.
-                    Voir les détails à ${env.BUILD_URL}.
+                    Le build  a échoué.
+
 
                     Merci,
                     Jenkins
