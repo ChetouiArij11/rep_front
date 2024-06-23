@@ -27,7 +27,6 @@ pipeline {
         stage('Build & rename Docker Image') {
             steps {
                 script {
-
                     bat "docker build -t frontend:latest ."
                     bat "docker tag frontend:latest arijchetoui1/frontend:latest"
                 }
@@ -37,25 +36,22 @@ pipeline {
         // stage('Run Docker Container') {
         //     steps {
         //         script {
-
         //             bat "docker run -d -p 8380:80 --name frontend_container_latest arijchetoui1/frontend:latest"
         //         }
         //     }
         // }
 
-         stage('Deploy Docker image') {
+        stage('Deploy Docker image') {
             steps {
                 script {
-
-                     docker.withRegistry('https://index.docker.io/v1/', '14') {
-
+                    docker.withRegistry('https://index.docker.io/v1/', '14') {
                         docker.image('arijchetoui1/frontend:latest').push()
                     }
                 }
             }
         }
 
-          stage('Kubernetes Deployment') {
+        stage('Kubernetes Deployment') {
             steps {
                 script {
                     // Apply Kubernetes deployment, service, and ingress configurations
@@ -63,11 +59,69 @@ pipeline {
                     bat "kubectl apply -f service.yaml"
                     bat "kubectl apply -f ingress.yaml"
                     bat "kubectl get deployment"
-                    bat "kubectl get svc "
+                    bat "kubectl get svc"
                     bat "kubectl get svc --all-namespaces"
                 }
             }
         }
     }
 
+    post {
+        always {
+            script {
+                def emailBody = """
+                Bonjour,
+
+                Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} s'est terminé avec le statut : ${currentBuild.result}.
+                Voir les détails à ${env.BUILD_URL}.
+
+                Merci,
+                Jenkins
+                """
+
+                emailext(
+                    subject: "Build ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: emailBody,
+                    recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                    to: 'arijchetoui1@gmail.com'
+                )
+            }
+        }
+        success {
+            script {
+                emailext(
+                    subject: "Build Succès: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                    Bonjour,
+
+                    Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} a réussi.
+                    Voir les détails à ${env.BUILD_URL}.
+
+                    Merci,
+                    Jenkins
+                    """,
+                    recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                    to: 'arijchetoui1@gmail.com'
+                )
+            }
+        }
+        failure {
+            script {
+                emailext(
+                    subject: "Build Échec: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                    Bonjour,
+
+                    Le build ${env.JOB_NAME} #${env.BUILD_NUMBER} a échoué.
+                    Voir les détails à ${env.BUILD_URL}.
+
+                    Merci,
+                    Jenkins
+                    """,
+                    recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                    to: 'arijchetoui1@gmail.com'
+                )
+            }
+        }
+    }
 }
